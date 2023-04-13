@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono">
 </head>
 <body>
+    <?php include('../php/index.php'); ?>
     <nav>
 		<img src="../images/logo.png" alt="logo">
 		<h1>PRZEPISY KULINARNE</h1>
@@ -19,12 +20,30 @@
 	</nav>
 
     <main>
-        <div class="przepis-box">
-            <div class="image-box">
-                <img src="../images/dummy.png" alt="Opis obrazka" />
+        <h1>Polecane przepisy</h1>
+
+        <div class="polecane-przepisy-box">
+            <div class="przepis-box" onclick="">
+                <div class="image-box">
+                    <img src="../images/dummy.png" alt="Opis obrazka" />
+                </div>
+                <p>Tekst pod obrazkiem</p>
             </div>
-            <p>Tekst pod obrazkiem</p>
+            <div class="przepis-box" onclick="">
+                <div class="image-box">
+                    <img src="../images/dummy.png" alt="Opis obrazka" />
+                </div>
+                <p>Tekst pod obrazkiem</p>
+            </div>
+            <div class="przepis-box" onclick="">
+                <div class="image-box">
+                    <img src="../images/dummy.png" alt="Opis obrazka" />
+                </div>
+                <p>Tekst pod obrazkiem</p>
+            </div>
         </div>
+
+        
     </main>
 
     <footer>

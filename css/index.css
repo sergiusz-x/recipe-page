@@ -3,14 +3,17 @@ body {
     color: #353D34;
     margin: 0;
 	padding: 0;
+    background-color: #F8EDE3;
 }
 
+/* NAVBAR */
 nav {
     background-color: #A2B29F;
     overflow: hidden;
     display: flex;
     align-items: center;
     height: 100px;
+    border-bottom: 5px solid #353D34;
 }
 nav img {
     height: 100px;
@@ -20,28 +23,58 @@ nav h1 {
     margin-left: 15px;
     font-size: 50px;
 }
-
-
-
-nav form {
+nav button {
+    background-color: #A2B29F;
+    color: white;
+    border: 5px solid #353D34;
+    border-radius: 50%;
+    height: 75px;
+    width: 75px;
     margin-left: auto;
     margin-right: 20px;
-}
-nav input[type=text] {
-    padding: 5px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 200px;
-}
-nav input[type=submit] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
     cursor: pointer;
-    margin-left: 5px;
+}
+nav button img {
+    height: 45px;
+    width: 45px;
+    margin-left: 0;
+}
+nav button:hover {
+    background-color: #798777;
+    box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1);
+}
+
+.przepis-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #353D34;
+}
+
+.image-box {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+footer {
+    background-color: #353D34;
+    color: #F8EDE3;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    padding: 5px;
+    width: 100%;
 }
 
 /*

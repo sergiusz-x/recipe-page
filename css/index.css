@@ -1,20 +1,30 @@
+body {
+    font-family: "Roboto Mono", serif;
+    color: #353D34;
+    margin: 0;
+	padding: 0;
+}
+
 nav {
-    background-color: #333;
+    background-color: #A2B29F;
     overflow: hidden;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    height: 60px;
+    height: 100px;
 }
 nav img {
-    height: 50px;
+    height: 100px;
     margin-left: 20px;
 }
 nav h1 {
-    color: white;
-    margin-left: 10px;
+    margin-left: 15px;
+    font-size: 50px;
 }
+
+
+
 nav form {
+    margin-left: auto;
     margin-right: 20px;
 }
 nav input[type=text] {
@@ -33,3 +43,11 @@ nav input[type=submit] {
     cursor: pointer;
     margin-left: 5px;
 }
+
+/*
+KOLOR 1: #F8EDE3
+KOLOR 2: #BDD2B6
+KOLOR 3: #A2B29F
+KOLOR 4: #798777
+KOLOR 5: #353D34
+*/

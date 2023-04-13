@@ -1,0 +1,35 @@
+nav {
+    background-color: #333;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+}
+nav img {
+    height: 50px;
+    margin-left: 20px;
+}
+nav h1 {
+    color: white;
+    margin-left: 10px;
+}
+nav form {
+    margin-right: 20px;
+}
+nav input[type=text] {
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 200px;
+}
+nav input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}

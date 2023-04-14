@@ -43,9 +43,6 @@ nav {
     display: flex;
     align-items: center;
     margin-left: auto;
-    margin-right: 25px;
-    justify-content: flex-end;
-    flex: 1;
 }
 .navbar-search form {
     display: flex;
@@ -77,6 +74,9 @@ nav {
 .navbar-search button[type="submit"] img {
     width: 35px;
     height: 35px;
+}
+.navbar-search button[type="submit"] img:hover {
+    transform: scale(1.1);
 }
 
 

@@ -6,7 +6,7 @@ main h1 {
 .przepis-box {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
     border: 3px solid #353D34;

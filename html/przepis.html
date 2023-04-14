@@ -6,15 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Przepisy TUTAJ_NAZWA_PRZEPISU</title>
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-    <link rel="stylesheet" href="../css/navbar_footer.css">
     <link rel="stylesheet" href="../css/przepis.css">
+    <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono">
+    <script src="../js/script.js"></script>
 </head>
 <body>
     <nav>
-		<img src="../images/logo.png" alt="logo">
-		<h1>PRZEPISY KULINARNE</h1>
-        <button>
+        <div class="navbar-logo">
+            <img src="../images/logo.png" alt="logo">
+		    <h1>PRZEPISY KULINARNE</h1>
+        </div>
+		
+        <div class="navbar-search">
+            <form>
+                <button class="search-icon" type="submit"><img src="../images/lupa.svg" alt="Search"></button>
+                <input class="search-input" type="text" placeholder="Wyszukaj przepis">
+            </form>
+        </div>
+
+        <button class="navbar-user">
             <img src="../images/person.svg" alt="ikona_uzytkownika">
         </button>
 	</nav>

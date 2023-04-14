@@ -9,14 +9,24 @@
     
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/navbar_footer.css">
-    
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono">
 </head>
 <body>
     <nav>
-		<img src="../images/logo.png" alt="logo">
-		<h1>PRZEPISY KULINARNE</h1>
-        <button>
+        <div class="navbar-logo">
+            <img src="../images/logo.png" alt="logo">
+		    <h1>PRZEPISY KULINARNE</h1>
+        </div>
+		
+        <div class="navbar-search">
+            <form>
+                <button type="submit"><img src="../images/lupa.svg" alt="Search"></button>
+                <input type="text" placeholder="Wyszukaj przepis">
+            </form>
+        </div>
+
+        <button class="navbar-user">
             <img src="../images/person.svg" alt="ikona_uzytkownika">
         </button>
 	</nav>
@@ -44,8 +54,6 @@
                 <p>Tekst pod obrazkiem</p>
             </div>
         </div>
-
-        
     </main>
 
     <footer>

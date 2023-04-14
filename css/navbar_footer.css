@@ -6,24 +6,81 @@ body {
     background-color: #F8EDE3;
 }
 
+
 /* NAVBAR & FOOTER */
 nav {
-    background-color: #A2B29F;
-    overflow: hidden;
     display: flex;
+    overflow: hidden;
+    justify-content: space-between;
     align-items: center;
     height: 100px;
+    background-color: #A2B29F;
     border-bottom: 5px solid #353D34;
+    padding: 0 20px;
 }
-nav img {
+
+
+
+.navbar-logo {
+    background-color: #A2B29F;
+    display: flex;
+    align-items: center;
+}
+.navbar-logo img {
     height: 100px;
-    margin-left: 20px;
 }
-nav h1 {
+.navbar-logo h1 {
     margin-left: 15px;
     font-size: 50px;
 }
-nav button {
+@media only screen and (max-width: 1200px) {
+    .navbar-logo h1 {
+        font-size: 40px;
+    }
+}
+
+.navbar-search {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 25px;
+    justify-content: flex-end;
+    flex: 1;
+}
+.navbar-search form {
+    display: flex;
+    align-items: center;
+}
+.navbar-search input[type="text"] {
+    width: 300px;
+    height: 50px;
+    border-radius: 0 100px 100px 0;
+    border: 4px solid #353D34;
+    color: #353D34;
+    background-color: #BDD2B6;
+    font-family: "Roboto Mono", serif;
+    border-left: 0;
+    font-size: 16px;
+}
+.navbar-search input[type="text"]:focus {
+    outline: none;
+}
+.navbar-search button[type="submit"] {
+    width: 60px;
+    height: 60px;
+    background-color: #BDD2B6;
+    
+    border-radius: 100px 0 0 100px;
+    border: 4px solid #353D34;
+    border-right: 0;
+}
+.navbar-search button[type="submit"] img {
+    width: 35px;
+    height: 35px;
+}
+
+
+.navbar-user {
     background-color: #A2B29F;
     color: white;
     border: 5px solid #353D34;
@@ -31,18 +88,23 @@ nav button {
     height: 75px;
     width: 75px;
     margin-left: auto;
-    margin-right: 20px;
     cursor: pointer;
+    aspect-ratio: 1/1;
 }
-nav button img {
+.navbar-user img {
     height: 45px;
     width: 45px;
     margin-left: 0;
 }
-nav button:hover {
+.navbar-user:hover {
     background-color: #798777;
     box-shadow: 0px 0px 24px 0px rgba(66, 68, 90, 1);
 }
+
+
+
+
+
 
 footer {
     background-color: #353D34;
@@ -52,6 +114,22 @@ footer {
     bottom: 0;
     padding: 5px;
     width: 100%;
+}
+/*  */
+
+
+/* SCROLL BAR */
+*::-webkit-scrollbar {
+    width: 20px;
+}
+*::-webkit-scrollbar-track {
+    background-color: rgba(121, 135, 119, 1);
+    background-image: linear-gradient(180deg, rgba(121, 135, 119, 1) 10%, rgba(53, 61, 52, 1) 90%);
+}
+*::-webkit-scrollbar-thumb {
+    background-color: #BDD2B6;
+    border-radius: 20px;
+    border: 3px solid #353d34;
 }
 /*  */
 

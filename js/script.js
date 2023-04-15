@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
         loginBtn.classList.add('active');
         registerBtn.classList.remove('active');
     }
-
     function showRegisterForm() {
         registerForm.style.display = 'block';
         loginForm.style.display = 'none';
@@ -47,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
         registerBtn.classList.add('active');
         loginBtn.classList.remove('active');
     }
-
     loginBtn.addEventListener('click', showLoginForm);
     registerBtn.addEventListener('click', showRegisterForm);
 

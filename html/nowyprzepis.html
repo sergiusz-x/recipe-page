@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przepisy kulinarne</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    
+    <link rel="stylesheet" href="../css/nowyprzepis.css">
+    <link rel="stylesheet" href="../css/main.css">
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono">
+</head>
+<body>
+    <nav>
+        <div class="navbar-logo">
+            <img src="../images/logo.png" alt="logo">
+		    <h1>PRZEPISY KULINARNE</h1>
+        </div>
+		
+        <div class="navbar-middle navbar-search">
+            <button class="navbar-middle-button" id="dodaj-przepis-button">Zapisz przepis</button>
+        </div>
+
+        <button class="navbar-user">
+            <img src="../images/person.svg" alt="ikona_uzytkownika">
+        </button>
+	</nav>
+
+    <main>
+        <div class="dane-box">
+            <p>Nazwa przepisu</p>
+            <input type="text" id="nazwa-przepisu" name="nazwa-przepisu">
+
+            <div class="trudnosc-porcja-realizacja-box">
+                <div>
+                    <input type="radio" id="trudnosc-latwe" name="trudnosc" value="latwe" checked>
+                    <label for="trudnosc-latwe">łatwe</label>
+                    <input type="radio" id="trudnosc-srednie" name="trudnosc" value="srednie">
+                    <label for="trudnosc-srednie">średnie</label>
+                    <input type="radio" id="trudnosc-trudne" name="trudnosc" value="trudne">
+                    <label for="trudnosc-trudne">trudne</label>
+                </div>
+
+                <div>
+                    <label>Ilość porcji</label>
+                    <br>
+                    <label id="porcja-na">5</label>
+                    <label>osób</label>
+                    <div class="box-buttons-zwiekszanie-zmniejszanie">
+                        <button type="button">+</button>
+                        <button type="button">-</button>
+                    </div>
+                </div>
+
+                <div>
+                    <label>Czas realizacji</label>
+                    <br>
+                    <label id="czas-realizacji">70</label>
+                    <label>min</label>
+                    <div class="box-buttons-zwiekszanie-zmniejszanie">
+                        <button type="button">+</button>
+                        <button type="button">-</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

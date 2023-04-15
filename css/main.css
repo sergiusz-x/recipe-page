@@ -47,6 +47,35 @@ nav {
 }
 
 
+.navbar-middle-button {
+    font-family: "Roboto Mono", serif;
+    width: 250px;
+    height: 75px;
+    font-size: 27px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: #A2B29F;
+    border: 4px solid #353D34;
+    color: #353D34;
+}
+@media only screen and (max-width: 620px) {
+    .navbar-middle-button {
+        font-size: 20px;
+        width: 130px;
+    }
+}
+.navbar-middle-button:focus {
+    outline: none;
+}
+.navbar-middle-button:hover {
+    background-color: #798777;
+    border: 4px solid #353D34;
+    color: #F8EDE3;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+}
+
+
 .navbar-search {
     display: flex;
     align-items: center;

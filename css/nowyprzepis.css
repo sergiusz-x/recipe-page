@@ -1,5 +1,254 @@
+.dane-box {
+    width: 65%;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+    font-size: 30px;
+}
+
+#nazwa-przepisu {
+    margin-bottom: 20px;
+    height: 40px;
+    padding: 10px 10px 10px 20px;
+    border-radius: 50px;
+    border: 4px solid #798777;
+    background-color: #A2B29F;
+    font-size: 20px;
+    width: 100%;
+    color: #F8EDE3;
+    font-family: "Roboto Mono", serif;
+    outline: none;
+    text-align: center;
+}
+#nazwa-przepisu:focus {
+    background-color: #798777;
+    border: 4px solid #353D34;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+}
 
 
+.trudnosc-porcja-realizacja-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.trudnosc-box {
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    align-items: center;
+}
+.trudnosc-box label {
+    margin: 10px;
+    cursor: pointer;
+}
+.trudnosc-box input {
+    cursor: pointer;
+}
+
+.porcjana-box {
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.box-buttons-zwiekszanie-zmniejszanie button {
+    background-color: #BDD2B6;
+    outline: none;
+    border: 1px solid #353D34;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    
+}
+.button-zwiekszenie, .button-zmniejszenie {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button-zwiekszenie:hover, .button-zmniejszenie:hover {
+    background-color: #A2B29F;
+    box-shadow: 0px 0px 50px 0px rgba(66, 68, 90, 0.5);
+}
+.button-zwiekszenie:active, .button-zmniejszenie:active {
+    background-color: #798777;
+    box-shadow: 0px 0px 50px 0px rgba(66, 68, 90, 1);
+}
+.button-zwiekszenie {
+    border-radius: 50px 50px 0 0;
+}
+.button-zmniejszenie {
+    border-radius: 0 0 50px 50px;
+}
+
+
+
+.skladnik {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
+
+.skladnik input {
+    margin-bottom: 20px;
+    height: 35px;
+    padding: 10px 10px 10px 20px;
+    border-radius: 50px;
+    border: 4px solid #798777;
+    background-color: #A2B29F;
+    font-size: 20px;
+    width: 100%;
+    color: #F8EDE3;
+    font-family: "Roboto Mono", serif;
+    outline: none;
+    margin: 10px;
+}
+.skladnik input:focus {
+    background-color: #798777;
+    border: 4px solid #353D34;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+}
+.skladnik input::placeholder {
+    color: #F8EDE3;
+}
+
+input.skladnik-nazwa-input {
+    width: 90%;
+}
+input.skladnik-wielkosc-input {
+    width: 10%;
+}
+
+.skladnik select {
+    height: 63px;
+    padding: 10px 10px 10px 20px;
+    border-radius: 50px;
+    border: 4px solid #798777;
+    background-color: #A2B29F;
+    font-size: 20px;
+    width: 150px;
+    color: #F8EDE3;
+    font-family: "Roboto Mono", serif;
+    outline: none;
+    margin: 10px;
+}
+
+.skladnik select:focus {
+    background-color: #798777;
+    border: 4px solid #353D34;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+}
+
+
+.krok-przygotowania {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
+
+.krok-przygotowania textarea {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 50px;
+    border: 4px solid #798777;
+    background-color: #A2B29F;
+    font-size: 20px;
+    width: 100%;
+    color: #F8EDE3;
+    font-family: "Roboto Mono", serif;
+    outline: none;
+    margin: 10px;
+    resize: vertical;
+    height: auto;
+    line-height: 1.2;
+    min-height: 150px;
+}
+.skladnik textarea:focus {
+    background-color: #798777;
+    border: 4px solid #353D34;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+}
+
+
+.zdjecia-box {
+    display: flex;
+    justify-content: center;
+}
+.zdjecia-box button {
+    background-color: #BDD2B6;
+    outline: none;
+    border: 1px solid #353D34;
+    border-radius: 10px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    margin-top: 0;
+}
+.button-dodaj-zdjecie {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button-dodaj-zdjecie:hover {
+    background-color: #A2B29F;
+    box-shadow: 0px 0px 10px 0px rgba(66, 68, 90, 0.5);
+}
+.button-dodaj-zdjecie:active {
+    background-color: #798777;
+    box-shadow: 0px 0px 10px 0px rgba(66, 68, 90, 1);
+}
+.button-dodaj-zdjecie img {
+    width: 25px;
+    height: 25px;
+}
+
+
+.buttons-wiecej-mniej-elementow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.buttons-wiecej-mniej-elementow button {
+    background-color: #BDD2B6;
+    outline: none;
+    border: 1px solid #353D34;
+    width: 49%;
+    height: 20px;
+    align-items: center;
+    margin: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.buttons-wiecej-mniej-elementow button:disabled {
+    background-color: #F8EDE3;
+    box-shadow: 0;
+    cursor: not-allowed;
+}
+.button-wiecej-elementow, .button-mniej-elementow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button-wiecej-elementow:hover, .button-mniej-elementow:hover {
+    background-color: #A2B29F;
+    box-shadow: 0px 0px 50px 0px rgba(66, 68, 90, 0.1);
+}
+.button-wiecej-elementow:active, .button-mniej-elementow:active {
+    background-color: #798777;
+    box-shadow: 0px 0px 50px 0px rgba(66, 68, 90, 0.2);
+}
 
 /*
 KOLOR 1: #F8EDE3

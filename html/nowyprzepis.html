@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Przepisy kulinarne</title>
+    <title>Nowy przepis</title>
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     
     <link rel="stylesheet" href="../css/nowyprzepis.css">
     <link rel="stylesheet" href="../css/main.css">
 
+    <script src="../js/nowyprzepis.js"></script>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono">
 </head>
@@ -34,37 +35,91 @@
             <p>Nazwa przepisu</p>
             <input type="text" id="nazwa-przepisu" name="nazwa-przepisu">
 
+            <br><br>
+
             <div class="trudnosc-porcja-realizacja-box">
                 <div>
-                    <input type="radio" id="trudnosc-latwe" name="trudnosc" value="latwe" checked>
-                    <label for="trudnosc-latwe">łatwe</label>
-                    <input type="radio" id="trudnosc-srednie" name="trudnosc" value="srednie">
-                    <label for="trudnosc-srednie">średnie</label>
-                    <input type="radio" id="trudnosc-trudne" name="trudnosc" value="trudne">
-                    <label for="trudnosc-trudne">trudne</label>
-                </div>
-
-                <div>
-                    <label>Ilość porcji</label>
-                    <br>
-                    <label id="porcja-na">5</label>
-                    <label>osób</label>
-                    <div class="box-buttons-zwiekszanie-zmniejszanie">
-                        <button type="button">+</button>
-                        <button type="button">-</button>
+                    Trudność
+                    <div class="trudnosc-box">
+                        <div>
+                            <input type="radio" id="trudnosc-latwe" name="trudnosc" value="latwe" checked>
+                            <br>
+                            <label for="trudnosc-latwe">łatwe</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="trudnosc-srednie" name="trudnosc" value="srednie">
+                            <br>
+                            <label for="trudnosc-srednie">średnie</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="trudnosc-trudne" name="trudnosc" value="trudne">
+                            <br>
+                            <label for="trudnosc-trudne">trudne</label>
+                        </div>
                     </div>
                 </div>
 
                 <div>
-                    <label>Czas realizacji</label>
-                    <br>
-                    <label id="czas-realizacji">70</label>
-                    <label>min</label>
-                    <div class="box-buttons-zwiekszanie-zmniejszanie">
-                        <button type="button">+</button>
-                        <button type="button">-</button>
+                    Porcja na
+                    <div class="porcjana-box">
+                        <p id="porcja-na">5 osób</p>
+                        <div class="box-buttons-zwiekszanie-zmniejszanie">
+                            <button type="button" class="button-zwiekszenie"><img src="../images/wiecej_ikonka.svg" alt="wiecej"></button>
+                            <button type="button" class="button-zmniejszenie"><img src="../images/mniej_ikonka.svg" alt="mniej"></button>
+                        </div>
                     </div>
                 </div>
+
+                <div>
+                    Czas realizacji
+                    <div class="porcjana-box">
+                        <p id="porcja-na">70 min</p>
+                        <div class="box-buttons-zwiekszanie-zmniejszanie">
+                            <button type="button" class="button-zwiekszenie"><img src="../images/wiecej_ikonka.svg" alt="wiecej"></button>
+                            <button type="button" class="button-zmniejszenie"><img src="../images/mniej_ikonka.svg" alt="mniej"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br><br>
+
+            <p>Składniki</p>
+            <div class="skladniki-box">
+                <div class="skladnik">
+                    <input type="text" class="skladnik-nazwa-input" placeholder="nazwa">
+                    <input type="text" class="skladnik-wielkosc-input" placeholder="10">
+                    <select name="wybor" class="skladnik-typ-wielkosci-select">
+                        <option value="opcja1">g</option>
+                        <option value="opcja2">ml</option>
+                        <option value="opcja3">szt.</option>
+                    </select>
+                </div>
+            </div>
+            <div class="buttons-wiecej-mniej-elementow">
+                <button class="button-wiecej-elementow"><img src="../images/plus_ikonka.svg" alt="ikona_uzytkownika"></button>
+                <button class="button-mniej-elementow" disabled><img src="../images/minus_ikonka.svg" alt="ikona_uzytkownika"></button>
+            </div>
+
+            <br><br>
+
+            <p>Przygotowanie</p>
+            <div class="przygotowanie-box">
+                <div class="krok-przygotowania">
+                    <textarea class="textarea-krok-przygotowania"></textarea>
+                </div>
+            </div>
+            <div class="buttons-wiecej-mniej-elementow">
+                <button class="button-wiecej-elementow"><img src="../images/plus_ikonka.svg" alt="ikona_uzytkownika"></button>
+                <button class="button-mniej-elementow" disabled><img src="../images/minus_ikonka.svg" alt="ikona_uzytkownika"></button>
+            </div>
+
+
+            <br><br>
+
+            <p>Zdjęcia</p>
+            <div class="zdjecia-box">
+                <button class="button-dodaj-zdjecie"><img src="../images/plus_ikonka.svg" alt="ikona_uzytkownika"></button>
             </div>
         </div>
     </main>

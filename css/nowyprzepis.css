@@ -30,7 +30,7 @@
 .trudnosc-porcja-realizacja-box {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
@@ -39,6 +39,7 @@
     flex-direction: row;
     font-size: 20px;
     align-items: center;
+    margin-bottom: 25px;
 }
 .trudnosc-box label {
     margin: 10px;
@@ -54,6 +55,7 @@
     font-size: 20px;
     align-items: center;
     justify-content: center;
+    margin-bottom: 25px;
 }
 
 .box-buttons-zwiekszanie-zmniejszanie button {
@@ -183,6 +185,7 @@ input.skladnik-wielkosc-input {
 .zdjecia-box {
     display: flex;
     justify-content: center;
+    margin-bottom: 110px;
 }
 .zdjecia-box button {
     background-color: #BDD2B6;

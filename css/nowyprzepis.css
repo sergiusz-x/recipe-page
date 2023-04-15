@@ -40,6 +40,8 @@
     font-size: 20px;
     align-items: center;
     margin-bottom: 25px;
+    text-align: center;
+    align-items: center;
 }
 .trudnosc-box label {
     margin: 10px;
@@ -252,6 +254,54 @@ input.skladnik-wielkosc-input {
     background-color: #798777;
     box-shadow: 0px 0px 50px 0px rgba(66, 68, 90, 0.2);
 }
+
+
+
+.radio-box {
+    display: block;
+    position: relative;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+.radio-box input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.fake-radio {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 20px;
+    width: 20px;
+    background-color: #F8EDE3;
+    border-radius: 50%;
+}
+.radio-box:hover input ~ .fake-radio {
+    background-color: #BDD2B6;
+}
+.radio-box input:checked ~ .fake-radio {
+    background-color: #798777;
+}
+.fake-radio:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+.radio-box input:checked ~ .fake-radio:after {
+    display: block;
+}
+.radio-box .fake-radio:after {
+    top: 6px;
+    left: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #F8EDE3;
+}
+
 
 /*
 KOLOR 1: #F8EDE3

@@ -41,31 +41,34 @@
                 <div>
                     Trudność
                     <div class="trudnosc-box">
-                        <div>
+                        <label class="radio-box" for="trudnosc-latwe">
                             <input type="radio" id="trudnosc-latwe" name="trudnosc" value="latwe" checked>
                             <br>
-                            <label for="trudnosc-latwe">łatwe</label>
-                        </div>
-                        <div>
+                            łatwe
+                            <span class="fake-radio"></span>
+                        </label>
+                        <label class="radio-box" for="trudnosc-srednie">
                             <input type="radio" id="trudnosc-srednie" name="trudnosc" value="srednie">
                             <br>
-                            <label for="trudnosc-srednie">średnie</label>
-                        </div>
-                        <div>
+                            średnie
+                            <span class="fake-radio"></span>
+                        </label>
+                        <label class="radio-box" for="trudnosc-trudne">
                             <input type="radio" id="trudnosc-trudne" name="trudnosc" value="trudne">
                             <br>
-                            <label for="trudnosc-trudne">trudne</label>
-                        </div>
+                            trudne
+                            <span class="fake-radio"></span>
+                        </label>
                     </div>
                 </div>
 
                 <div>
                     Porcja na
                     <div class="porcjana-box">
-                        <p id="porcja-na">5 osób</p>
+                        <p id="porcja-na-wartosc">2 osoby</p>
                         <div class="box-buttons-zwiekszanie-zmniejszanie">
-                            <button type="button" class="button-zwiekszenie"><img src="../images/wiecej_ikonka.svg" alt="wiecej"></button>
-                            <button type="button" class="button-zmniejszenie"><img src="../images/mniej_ikonka.svg" alt="mniej"></button>
+                            <button type="button" class="button-zwiekszenie" id="porcja-button-zwieksz"><img src="../images/wiecej_ikonka.svg" alt="wiecej"></button>
+                            <button type="button" class="button-zmniejszenie" id="porcja-button-zmniejsz"><img src="../images/mniej_ikonka.svg" alt="mniej"></button>
                         </div>
                     </div>
                 </div>
@@ -73,10 +76,10 @@
                 <div>
                     Czas realizacji
                     <div class="porcjana-box">
-                        <p id="porcja-na">70 min</p>
+                        <p id="czas-realizacji-wartosc">30 min</p>
                         <div class="box-buttons-zwiekszanie-zmniejszanie">
-                            <button type="button" class="button-zwiekszenie"><img src="../images/wiecej_ikonka.svg" alt="wiecej"></button>
-                            <button type="button" class="button-zmniejszenie"><img src="../images/mniej_ikonka.svg" alt="mniej"></button>
+                            <button type="button" class="button-zwiekszenie" id="czasrealizacji-button-zwieksz"><img src="../images/wiecej_ikonka.svg" alt="wiecej"></button>
+                            <button type="button" class="button-zmniejszenie" id="czasrealizacji-button-zmniejsz"><img src="../images/mniej_ikonka.svg" alt="mniej"></button>
                         </div>
                     </div>
                 </div>
@@ -86,7 +89,7 @@
 
             <p>Składniki</p>
             <div class="skladniki-box">
-                <div class="skladnik">
+                <div class="skladnik" id="skladniki-box-oryginal">
                     <input type="text" class="skladnik-nazwa-input" placeholder="nazwa">
                     <input type="text" class="skladnik-wielkosc-input" placeholder="10">
                     <select name="wybor" class="skladnik-typ-wielkosci-select">
@@ -97,21 +100,21 @@
                 </div>
             </div>
             <div class="buttons-wiecej-mniej-elementow">
-                <button class="button-wiecej-elementow"><img src="../images/plus_ikonka.svg" alt="ikona_uzytkownika"></button>
-                <button class="button-mniej-elementow" disabled><img src="../images/minus_ikonka.svg" alt="ikona_uzytkownika"></button>
+                <button class="button-wiecej-elementow" id="skladniki-button-dodaj"><img src="../images/plus_ikonka.svg" alt="ikona_uzytkownika"></button>
+                <button class="button-mniej-elementow"  id="skladniki-button-usun" disabled><img src="../images/minus_ikonka.svg" alt="ikona_uzytkownika"></button>
             </div>
 
             <br><br>
 
             <p>Przygotowanie</p>
             <div class="przygotowanie-box">
-                <div class="krok-przygotowania">
-                    <textarea class="textarea-krok-przygotowania"></textarea>
+                <div class="krok-przygotowania" id="przygotowanie-box-oryginal">
+                    <textarea class="textarea-krok-przygotowania">1. </textarea>
                 </div>
             </div>
             <div class="buttons-wiecej-mniej-elementow">
-                <button class="button-wiecej-elementow"><img src="../images/plus_ikonka.svg" alt="ikona_uzytkownika"></button>
-                <button class="button-mniej-elementow" disabled><img src="../images/minus_ikonka.svg" alt="ikona_uzytkownika"></button>
+                <button class="button-wiecej-elementow" id="przygotowanie-button-dodaj"><img src="../images/plus_ikonka.svg" alt="ikona_uzytkownika"></button>
+                <button class="button-mniej-elementow" id="przygotowanie-button-usun" disabled><img src="../images/minus_ikonka.svg" alt="ikona_uzytkownika"></button>
             </div>
 
 

@@ -37,7 +37,7 @@ main h1 {
 
 .polecane-przepisy-box {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
     max-width: 85%;

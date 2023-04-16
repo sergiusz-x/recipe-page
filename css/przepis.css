@@ -72,15 +72,38 @@ li input[type="checkbox"] {
     margin: 0 auto 20px;
     margin-top: 50px;
     overflow: hidden;
-    cursor: pointer;
+    position: relative;
 }
+
 .zdjecie-przepisu img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 25px;
 }
 
+.buttons-gallery {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.buttons-gallery button {
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.buttons-gallery button img {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin: 0 1rem;
+    transform: translateY(-50%) rotate(90deg);
+}
 
 .przygotowanie-box {
     display: flex;

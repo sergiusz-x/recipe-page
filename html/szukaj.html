@@ -17,21 +17,25 @@
 </head>
 <body>
     <nav>
-        <div class="navbar-logo">
-            <img src="../images/logo.png" alt="logo">
-		    <h1>PRZEPISY KULINARNE</h1>
-        </div>
+        <a href="index.php">
+            <div class="navbar-logo">
+                <img src="../images/logo.png" alt="logo">
+                <h1>PRZEPISY KULINARNE</h1>
+            </div>
+        </a>
 		
         <div class="navbar-search">
-            <form>
+            <form action="szukaj.php" method="get">
                 <button class="search-icon" type="submit"><img src="../images/lupa.svg" alt="Search"></button>
-                <input class="search-input" type="text" placeholder="Wyszukaj przepis">
+                <input class="search-input" type="text" placeholder="Wyszukaj przepis" name="query">
             </form>
         </div>
 
-        <button class="navbar-user">
-            <img src="../images/person.svg" alt="ikona_uzytkownika">
-        </button>
+        <a href="konto.php">
+            <button class="navbar-user">
+                <img src="../images/person.svg" alt="ikona_uzytkownika">
+            </button>
+        </a>
 	</nav>
 
     <main>

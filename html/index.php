@@ -18,7 +18,7 @@
         <a href="index.php">
             <div class="navbar-logo">
                 <img src="../images/logo.png" alt="logo">
-                <h1>PRZEPISY KULINARNE</h1>
+                <p>PRZEPISY KULINARNE</p>
             </div>
         </a>
 		
@@ -29,10 +29,8 @@
             </form>
         </div>
     
-        <a href="konto.php">
-            <button class="navbar-user">
-                <img src="../images/person.svg" alt="ikona_uzytkownika">
-            </button>
+        <a href="konto.php" class="navbar-user">
+            <img src="../images/person.svg" alt="ikona_uzytkownika">
         </a>
 	</nav>
 
@@ -42,19 +40,19 @@
             <!--  -->
             <div class="przepis-box" onclick="window.location.href = '/przepis.php?id=2137'">
                 <div class="image-box">
-                    <img src="../images/dummy.png" alt="Opis obrazka" />
+                    <img src="../images/dummy.png" alt="Opis obrazka">
                 </div>
                 <p>Tekst pod obrazkiem</p>
             </div>
             <div class="przepis-box" onclick="window.location.href = '/przepis.php?id=2137'">
                 <div class="image-box">
-                    <img src="../images/dummy.png" alt="Opis obrazka" />
+                    <img src="../images/dummy.png" alt="Opis obrazka">
                 </div>
                 <p>Tekst pod obrazkiem</p>
             </div>
             <div class="przepis-box" onclick="window.location.href = '/przepis.php?id=2137'">
                 <div class="image-box">
-                    <img src="../images/dummy.png" alt="Opis obrazka" />
+                    <img src="../images/dummy.png" alt="Opis obrazka">
                 </div>
                 <p>Tekst pod obrazkiem</p>
             </div>
@@ -68,7 +66,19 @@
             <!--  -->
             <div class="przepis-box" onclick="window.location.href = '/przepis.php?id=2137'">
                 <div class="image-box">
-                    <img src="../images/dummy.png" alt="Opis obrazka" />
+                    <img src="../images/dummy.png" alt="Opis obrazka">
+                </div>
+                <p>Tekst pod obrazkiem</p>
+            </div>
+            <div class="przepis-box" onclick="window.location.href = '/przepis.php?id=2137'">
+                <div class="image-box">
+                    <img src="../images/dummy.png" alt="Opis obrazka">
+                </div>
+                <p>Tekst pod obrazkiem</p>
+            </div>
+            <div class="przepis-box" onclick="window.location.href = '/przepis.php?id=2137'">
+                <div class="image-box">
+                    <img src="../images/dummy.png" alt="Opis obrazka">
                 </div>
                 <p>Tekst pod obrazkiem</p>
             </div>
@@ -77,7 +87,7 @@
     </main>
 
     <footer>
-        <p><?php include('../php/counter_index.php'); ?></p>
+        <!-- <p><?php include('../php/counter_index.php'); ?></p> -->
     </footer>
 </body>
 </html>

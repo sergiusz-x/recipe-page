@@ -12,13 +12,13 @@
         exit();
     }
     //
-    if(!isset($data_json['nazwa_przepisu']) || empty($data_json['nazwa_przepisu'])) { echo 'Brak wymaganych danych #1'; exit; }
-    if(!isset($data_json['trudnosc']) || $data_json['trudnosc'] === '') { echo 'Brak wymaganych danych #2'; exit; }
-    if(!isset($data_json['porcja']) || empty($data_json['porcja'])) { echo 'Brak wymaganych danych #3'; exit; }
-    if(!isset($data_json['czas_realizacji']) || empty($data_json['czas_realizacji'])) { echo 'Brak wymaganych danych #4'; exit; }
-    if(!isset($data_json['skladniki']) || empty($data_json['skladniki'])) { echo 'Brak wymaganych danych #5'; exit; }
-    if(!isset($data_json['przygotowanie']) || empty($data_json['przygotowanie'])) { echo 'Brak wymaganych danych #6'; exit; }
-    if(!isset($data_json['zdjecia']) || empty($data_json['zdjecia'])) { echo 'Brak wymaganych danych #7'; exit; }
+    if(!isset($data_json['nazwa_przepisu']) || empty($data_json['nazwa_przepisu'])) { echo 'Brak wymaganych danych #1'; exit(); }
+    if(!isset($data_json['trudnosc']) || $data_json['trudnosc'] === '') { echo 'Brak wymaganych danych #2'; exit(); }
+    if(!isset($data_json['porcja']) || empty($data_json['porcja'])) { echo 'Brak wymaganych danych #3'; exit(); }
+    if(!isset($data_json['czas_realizacji']) || empty($data_json['czas_realizacji'])) { echo 'Brak wymaganych danych #4'; exit(); }
+    if(!isset($data_json['skladniki']) || empty($data_json['skladniki'])) { echo 'Brak wymaganych danych #5'; exit(); }
+    if(!isset($data_json['przygotowanie']) || empty($data_json['przygotowanie'])) { echo 'Brak wymaganych danych #6'; exit(); }
+    if(!isset($data_json['zdjecia']) || empty($data_json['zdjecia'])) { echo 'Brak wymaganych danych #7'; exit(); }
     //
     $nazwa_przepisu = $data_json['nazwa_przepisu'];
     $trudnosc = $data_json['trudnosc'];
@@ -94,7 +94,38 @@
     //
     $skladniki = json_encode($data_json['skladniki'], JSON_UNESCAPED_UNICODE);
     $przygotowanie = json_encode($data_json['przygotowanie'], JSON_UNESCAPED_UNICODE);
-    $zdjecia = json_encode($data_json['zdjecia'], JSON_UNESCAPED_UNICODE);
+    //
+    //
+    // $zdjecia = json_encode($data_json['zdjecia'], JSON_UNESCAPED_UNICODE);
+    $zapisane_zdjecia = [];
+    $photosDir = '../images/przepisy';
+    // przejście przez każde zdjęcie base64
+    foreach ($zdjecia as $photo) {
+        // konwersja base64 na plik tymczasowy
+        $tmpFilePath = tempnam(sys_get_temp_dir(), 'img');
+        $imgData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $photo));
+        file_put_contents($tmpFilePath, $imgData);
+    
+        // sprawdzenie czy plik jest zdjęciem i czy ma poprawny format
+        $size = getimagesize($tmpFilePath);
+        $allowedFormats = ['image/jpeg', 'image/png'];
+        if ($size && in_array($size['mime'], $allowedFormats)) {
+            // sprawdzenie czy rozmiar pliku jest mniejszy niż 5 MB
+            $fileSize = filesize($tmpFilePath);
+            if ($fileSize < 5 * 1024 * 1024) {
+                // generowanie losowej nazwy pliku i zapisanie zdjęcia
+                $randomName = 'zdjecie-przepisu-' . bin2hex(random_bytes(4)) . '-' . time() . '.' . pathinfo($size['mime'], PATHINFO_EXTENSION);
+                $filePath = $photosDir . $randomName;
+                if (move_uploaded_file($tmpFilePath, $filePath)) {
+                // dodanie lokalizacji zapisanego zdjęcia do listy
+                    $zapisane_zdjecia[] = $filePath;
+                }
+            }
+        }
+        // usunięcie pliku tymczasowego
+        unlink($tmpFilePath);
+    }
+    $zapisane_zdjecia_txt = json_encode($zapisane_zdjecia);
     //
     $nazwa_przepisu = mysqli_real_escape_string($conn, $nazwa_przepisu);
     $trudnosc = mysqli_real_escape_string($conn, $trudnosc);
@@ -102,9 +133,9 @@
     $czas_realizacji = mysqli_real_escape_string($conn, $czas_realizacji);
     $skladniki = mysqli_real_escape_string($conn, $skladniki);
     $przygotowanie = mysqli_real_escape_string($conn, $przygotowanie);
-    $zdjecia = mysqli_real_escape_string($conn, $zdjecia);
+    $zapisane_zdjecia_txt = mysqli_real_escape_string($conn, $zapisane_zdjecia_txt);
     //
-    $query = "INSERT INTO przepisy (autor_id, nazwa, trudnosc, porcja, czas_realizacji, skladniki, przygotowanie, zdjecia, timestamp, counter_odwiedzin) VALUES (1, '$nazwa_przepisu', '$trudnosc', '$porcja', '$czas_realizacji', '$skladniki', '$przygotowanie', '$zdjecia', '$timestamp', 0)";
+    $query = "INSERT INTO przepisy (autor_id, nazwa, trudnosc, porcja, czas_realizacji, skladniki, przygotowanie, zdjecia, timestamp, counter_odwiedzin) VALUES (1, '$nazwa_przepisu', '$trudnosc', '$porcja', '$czas_realizacji', '$skladniki', '$przygotowanie', '$zapisane_zdjecia_txt', '$timestamp', 0)";
     //
     //
     $keywordsqlinjection = array('select', 'update', 'delete', 'drop', 'create', ';', '--');

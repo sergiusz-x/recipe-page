@@ -34,7 +34,7 @@
 	</nav>
 
 
-    
+    <!-- <?php include('../php/przepis.php'); ?> -->
 
     <!-- <br><br><br>
     <h1 style="text-align: center;">Ten przepis nie został znaleziony!</h1> -->
@@ -54,13 +54,13 @@
                     </div>
                     <div class="ikonki-box">
                         <div class="image-ikonka-box">
-                            <img src="../images/person.svg" alt="trudnosc">
+                            <img src="../images/person.svg" alt="porcja">
                         </div>
                         <p>10 os.</p>
                     </div>
                     <div class="ikonki-box">
                         <div class="image-ikonka-box">
-                            <img src="../images/zegar_ikonka.svg" alt="trudnosc">
+                            <img src="../images/zegar_ikonka.svg" alt="czas">
                         </div>
                         <p>70 min</p>
                     </div>

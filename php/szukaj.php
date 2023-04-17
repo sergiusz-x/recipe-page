@@ -1,7 +1,8 @@
 <?php
     require_once "connect.php";
     //
-    $query = @$_GET['query'];
+    $query = @urldecode(@$_GET['query']);
+    $tresc_zapytania = $query;
     if (!$query) {
         echo '<br><br><br><h1 style="text-align: center;">Nie znaleziono żadnych przepisów!</h1>';
         exit();
@@ -13,46 +14,35 @@
         exit();
     }
     //
-    $query_polecane = "SELECT * FROM przepisy ORDER BY counter_odwiedzin DESC LIMIT 6";
-    $query_ostatnie = "SELECT * FROM przepisy ORDER BY timestamp DESC LIMIT 6";
+    $query = strtolower(str_replace(' ', '', $query));
+    $query = mysqli_real_escape_string($conn, $query);
+    $zapytanie_sql_tresc = "SELECT * FROM `przepisy` WHERE LOWER(REPLACE(nazwa, ' ', '')) LIKE '%$query%'";
     //
-    $result_polecane = $conn->query($query_polecane);
-    $result_ostatnie = $conn->query($query_ostatnie);
+    $keywordsqlinjection = array('insert', 'update', 'delete', 'drop', 'create', ';', '--');
+    $lowercase_query = strtolower($zapytanie_sql_tresc);
+    foreach($keywordsqlinjection as $word) {
+        if(strpos($lowercase_query, $word) !== false) {
+            echo "Błąd wyszukiwania przepisów #1";
+            exit();
+        }
+    }
     //
-    $lista_przepisow_polecane = "";
-    $lista_przepisow_ostatnie = "";
+    $results = $conn->query($zapytanie_sql_tresc);
+    $lista_przepisow = "";
     //
-    if ($result_polecane->num_rows == 0 || $result_ostatnie->num_rows == 0) {
-        echo '<br><br><br><h1 style="text-align: center;">Nie znaleziono przepisów!</h1>';
+    if (!$results || $results->num_rows == 0) {
+        echo '<br><br><br><h1 style="text-align: center;">Nie znaleziono żadnych przepisów dla: '.$tresc_zapytania.'</h1>';
         exit();
     }
     //
-    // POLECANE
-    while ($row = $result_polecane->fetch_assoc()) {
+    while ($row = $results->fetch_assoc()) {
         //
         $id_przepisu = $row["id"];
         $nazwa_przepisu = $row["nazwa"];
         $zdjecia_przepisu_list = json_decode($row['zdjecia'], true, JSON_UNESCAPED_UNICODE);
         $zdjecie_przepisu = './../images/przepisy/' . $zdjecia_przepisu_list[0];
         //
-        $lista_przepisow_polecane .= 
-        '<div class="przepis-box" onclick="window.location.href = `${window.location.pathname}/../przepis.php?id='.$id_przepisu.'` ">
-            <div class="image-box">
-                <img src="'.$zdjecie_przepisu.'" alt="Zdjęcie przepisu">
-            </div>
-            <p>'.$nazwa_przepisu.'</p>
-        </div>';
-    }
-    //
-    // OSTATNIO DODANE
-    while ($row = $result_ostatnie->fetch_assoc()) {
-        //
-        $id_przepisu = $row["id"];
-        $nazwa_przepisu = $row["nazwa"];
-        $zdjecia_przepisu_list = json_decode($row['zdjecia'], true, JSON_UNESCAPED_UNICODE);
-        $zdjecie_przepisu = './../images/przepisy/' . $zdjecia_przepisu_list[0];
-        //
-        $lista_przepisow_ostatnie .= 
+        $lista_przepisow .= 
         '<div class="przepis-box" onclick="window.location.href = `${window.location.pathname}/../przepis.php?id='.$id_przepisu.'` ">
             <div class="image-box">
                 <img src="'.$zdjecie_przepisu.'" alt="Zdjęcie przepisu">
@@ -65,14 +55,8 @@
     //
     echo '
 <main>
-    <h1>Polecane przepisy</h1>
-    <div class="polecane-przepisy-box">
-        '.$lista_przepisow_polecane.'
-    </div>
-    <br><br>
-    <h1>Ostatnio dodane przepisy</h1>
-    <div class="polecane-przepisy-box">
-        '.$lista_przepisow_ostatnie.'
+    <div class="znalezione-przepisy-box">
+        '.$lista_przepisow.'
     </div>
 </main>
     ';

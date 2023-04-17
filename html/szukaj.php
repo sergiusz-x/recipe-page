@@ -40,7 +40,7 @@
     
     <!-- <main>
         <div class="znalezione-przepisy-box">
-            <div class="przepis-box" onclick="">
+            <div class="przepis-box" onclick="window.location.href = `${window.location.pathname}/../przepis.php?id=0` ">
                 <div class="image-box">
                     <img src="../images/dummy.png" alt="Zdjęcie przepisu">
                 </div>

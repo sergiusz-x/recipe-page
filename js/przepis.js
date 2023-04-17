@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if(!images || images.length == 0) {
             images = ["../images/dummy.png"]
         }
+        //
         function show_image() {
             gallery_zdjecie.src = images[index]
         }

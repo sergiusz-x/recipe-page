@@ -61,7 +61,7 @@
             if (!is_numeric($skladnik['wielkosc']) || $skladnik['wielkosc'] < 0) {
                 return false;
             }
-            $dozwolone_typy_wielkosci = ['g', 'ml', 'szt.'];
+            $dozwolone_typy_wielkosci = ['g', 'kg', 'ml', 'L', 'szt.'];
             if (!in_array($skladnik['typ_wielkosci'], $dozwolone_typy_wielkosci)) {
                 return false;
             }
@@ -96,36 +96,50 @@
     $przygotowanie = json_encode($data_json['przygotowanie'], JSON_UNESCAPED_UNICODE);
     //
     //
-    // $zdjecia = json_encode($data_json['zdjecia'], JSON_UNESCAPED_UNICODE);
+    //
     $zapisane_zdjecia = [];
-    $photosDir = '../images/przepisy';
-    // przejście przez każde zdjęcie base64
-    foreach ($zdjecia as $photo) {
-        // konwersja base64 na plik tymczasowy
+    $photosDir = __DIR__ . '\\..\\images\\przepisy\\';
+    //
+    function isImage($file) {
+        $size = getimagesize($file);
+        $allowedFormats = ['image/jpeg', 'image/png'];
+        return ($size && in_array($size['mime'], $allowedFormats));
+    }
+    function isFileSizeValid($file) {
+        $fileSize = filesize($file);
+        $maxFileSize = 5 * 1024 * 1024; // 5 MB
+        return ($fileSize < $maxFileSize);
+    }
+    //
+    foreach($zdjecia as $photo) {
+        //
         $tmpFilePath = tempnam(sys_get_temp_dir(), 'img');
         $imgData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $photo));
         file_put_contents($tmpFilePath, $imgData);
-    
-        // sprawdzenie czy plik jest zdjęciem i czy ma poprawny format
-        $size = getimagesize($tmpFilePath);
-        $allowedFormats = ['image/jpeg', 'image/png'];
-        if ($size && in_array($size['mime'], $allowedFormats)) {
-            // sprawdzenie czy rozmiar pliku jest mniejszy niż 5 MB
-            $fileSize = filesize($tmpFilePath);
-            if ($fileSize < 5 * 1024 * 1024) {
-                // generowanie losowej nazwy pliku i zapisanie zdjęcia
-                $randomName = 'zdjecie-przepisu-' . bin2hex(random_bytes(4)) . '-' . time() . '.' . pathinfo($size['mime'], PATHINFO_EXTENSION);
-                $filePath = $photosDir . $randomName;
-                if (move_uploaded_file($tmpFilePath, $filePath)) {
-                // dodanie lokalizacji zapisanego zdjęcia do listy
-                    $zapisane_zdjecia[] = $filePath;
-                }
-            }
+        //
+        if(!isImage($tmpFilePath)) continue;
+        if(!isFileSizeValid($tmpFilePath)) continue;
+        //
+        $randomName = 'zdjecie-przepisu-' . bin2hex(random_bytes(6)) . '-' . time() . '.jpg';
+        //
+        $extension = pathinfo($tmpFilePath, PATHINFO_EXTENSION);
+        $randomName = str_replace($extension, "", $randomName);
+        //
+        $filePath = $photosDir . $randomName;
+        //
+        if(rename($tmpFilePath, $filePath)) {
+            $zapisane_zdjecia[] = $randomName;
+        } else {
+            @unlink($tmpFilePath);
         }
-        // usunięcie pliku tymczasowego
-        unlink($tmpFilePath);
+        //
+    }
+    if(empty($zapisane_zdjecia)) {
+        $zapisane_zdjecia[] = "../dummy.png";
     }
     $zapisane_zdjecia_txt = json_encode($zapisane_zdjecia);
+    //
+    //
     //
     $nazwa_przepisu = mysqli_real_escape_string($conn, $nazwa_przepisu);
     $trudnosc = mysqli_real_escape_string($conn, $trudnosc);

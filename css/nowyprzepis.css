@@ -125,10 +125,10 @@
 }
 
 input.skladnik-nazwa-input {
-    width: 90%;
+    width: 85%;
 }
 input.skladnik-wielkosc-input {
-    width: 10%;
+    width: 15%;
 }
 
 .skladnik select {

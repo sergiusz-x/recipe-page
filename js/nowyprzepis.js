@@ -76,14 +76,14 @@ function pobierz_dane_przepisu() {
     }
     //
     //
-    dane.nazwa_przepisu = "test"
-    dane.skladniki = [{
-        nazwa: "cukier",
-        wielkosc: 10,
-        typ_wielkosci: "g"
-    }]
-    dane.przygotowanie = ["1. Zmieszać składniki"]
-    dane.zdjecia = ["../images/dummy.png", "../images/dummy.png"]
+    // dane.nazwa_przepisu = "test"
+    // dane.skladniki = [{
+    //     nazwa: "cukier",
+    //     wielkosc: 10,
+    //     typ_wielkosci: "g"
+    // }]
+    // dane.przygotowanie = ["1. Zmieszać składniki"]
+    // dane.zdjecia = ["../images/dummy.png", "../images/dummy.png"]
     //
     return dane
 }
@@ -136,9 +136,9 @@ function zapisanie_przepisu() {
         }).then(text => {
             if(text.startsWith("Błąd dodawania przepisu") || isNaN(Number(text))) {
                 alert(text)
-                // window.location.href = "/konto.php"
+                window.location.href = `${window.location.pathname}/../konto.php`
             } else {
-                window.location.href = `/przepis.php?id=${text}`
+                window.location.href = `${window.location.pathname}/../przepis.php?id=${text}`
             }
         }).catch(error => {
             console.error(error)
@@ -183,7 +183,7 @@ function dodawanie_usuwanie_elementow_skladniki_przygotowanie() {
     //
     przygotowanie_przycisk_dodaj.addEventListener('click', () => {
         const klon_div = przygotowanie_box_oryginal.cloneNode(true)
-        klon_div.querySelector(".textarea-krok-przygotowania").value = `${przygotowanie_box_div.children.length+1}. `
+        klon_div.querySelector(".textarea-krok-przygotowania").value = "" // `${przygotowanie_box_div.children.length+1}. `
         //
         przygotowanie_box_div.appendChild(klon_div)
         //

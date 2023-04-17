@@ -59,7 +59,12 @@
 
     // pobranie pierwszego zdjęcia z bazy danych
     $zdjecia_list = json_decode($row['zdjecia'], true, JSON_UNESCAPED_UNICODE);
-    $zdjecie = $zdjecia_list[0];
+    $zdjecie = './../images/przepisy/' . $zdjecia_list[0];
+    $zdjecia_list_txt = json_decode($row['zdjecia'], true, JSON_UNESCAPED_UNICODE);
+    foreach($zdjecia_list_txt as &$zdjecie) {
+        $zdjecie = './../images/przepisy/' . $zdjecie;
+    }
+    $zdjecia_list_txt = json_encode($zdjecia_list_txt);
 
     // pobranie kroków przygotowania z bazy danych i dodanie ich do listy
     $kroki = '';
@@ -94,19 +99,19 @@
             <div class="ikonki-all-box">
                 <div class="ikonki-box">
                     <div class="image-ikonka-box">
-                        <img src="../images/latwosc_'.$row['trudnosc'].'.svg" alt="trudnosc">
+                        <img src="../images/latwosc_'.$row['trudnosc'].'.svg" alt="Ikona trudności">
                     </div>
                     <p>'.$trudnosc.'</p>
                 </div>
                 <div class="ikonki-box">
                     <div class="image-ikonka-box">
-                        <img src="../images/person.svg" alt="porcja">
+                        <img src="../images/person.svg" alt="Ikona osoby">
                     </div>
                     <p>'.$porcja.'</p>
                 </div>
                 <div class="ikonki-box">
                     <div class="image-ikonka-box">
-                        <img src="../images/zegar_ikonka.svg" alt="czas">
+                        <img src="../images/zegar_ikonka.svg" alt="Ikona zegara">
                     </div>
                     <p>'.$czas.'</p>
                 </div>
@@ -121,10 +126,10 @@
 
         <div class="kolumna">
             <div class="zdjecie-przepisu">
-                <img src="'.$zdjecie.'" alt="Opis obrazka" id="gallery-zdjecie">
+                <img src="../images/dummy.png" alt="Zdjęcie przepisu" id="gallery-zdjecie">
                 <div class="buttons-gallery">
-                    <button><img src="../images/mniej_ikonka.svg" alt="poprzedni" id="button-gallery-lewo"></button>
-                    <button><img src="../images/wiecej_ikonka.svg" alt="nastepny" id="button-gallery-prawo"></button>
+                    <button><img src="../images/mniej_ikonka.svg" alt="Ikona strzałki w dół" id="button-gallery-lewo"></button>
+                    <button><img src="../images/wiecej_ikonka.svg" alt="Ikona strzałki w górę" id="button-gallery-prawo"></button>
                 </div>
             </div>
     
@@ -137,7 +142,7 @@
 </main>
 
 <script>
-    let images = '.$row['zdjecia'].'
+    let images = '.$zdjecia_list_txt.'
     document.title = "'.$row['nazwa'].'"
 </script>
 

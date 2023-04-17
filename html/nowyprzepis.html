@@ -19,7 +19,7 @@
     <nav>
         <a href="index.php">
             <div class="navbar-logo">
-                <img src="../images/logo.png" alt="logo">
+                <img src="../images/logo.png" alt="Logo strony">
                 <p>PRZEPISY KULINARNE</p>
             </div>
         </a>
@@ -29,7 +29,7 @@
         </div>
 
         <a href="konto.php" class="navbar-user">
-            <img src="../images/person.svg" alt="ikona_uzytkownika">
+            <img src="../images/person.svg" alt="Ikona użytkownika">
         </a>
 	</nav>
 
@@ -70,8 +70,8 @@
                     <div class="porcjana-box">
                         <p id="porcja-na-wartosc">2 osoby</p>
                         <div class="box-buttons-zwiekszanie-zmniejszanie">
-                            <button type="button" class="button-zwiekszenie" id="porcja-button-zwieksz"><img src="../images/wiecej_ikonka.svg" alt="wiecej"></button>
-                            <button type="button" class="button-zmniejszenie" id="porcja-button-zmniejsz"><img src="../images/mniej_ikonka.svg" alt="mniej"></button>
+                            <button type="button" class="button-zwiekszenie" id="porcja-button-zwieksz"><img src="../images/wiecej_ikonka.svg" alt="Ikona strzałki w górę"></button>
+                            <button type="button" class="button-zmniejszenie" id="porcja-button-zmniejsz"><img src="../images/mniej_ikonka.svg" alt="Ikona strzałki w dół"></button>
                         </div>
                     </div>
                 </div>
@@ -81,8 +81,8 @@
                     <div class="porcjana-box">
                         <p id="czas-realizacji-wartosc">30 min</p>
                         <div class="box-buttons-zwiekszanie-zmniejszanie">
-                            <button type="button" class="button-zwiekszenie" id="czasrealizacji-button-zwieksz"><img src="../images/wiecej_ikonka.svg" alt="wiecej"></button>
-                            <button type="button" class="button-zmniejszenie" id="czasrealizacji-button-zmniejsz"><img src="../images/mniej_ikonka.svg" alt="mniej"></button>
+                            <button type="button" class="button-zwiekszenie" id="czasrealizacji-button-zwieksz"><img src="../images/wiecej_ikonka.svg" alt="Ikona strzałki w górę"></button>
+                            <button type="button" class="button-zmniejszenie" id="czasrealizacji-button-zmniejsz"><img src="../images/mniej_ikonka.svg" alt="Ikona strzałki w dół"></button>
                         </div>
                     </div>
                 </div>
@@ -93,18 +93,20 @@
             <p>Składniki</p>
             <div class="skladniki-box">
                 <div class="skladnik" id="skladniki-box-oryginal">
-                    <input type="text" class="skladnik-nazwa-input" placeholder="nazwa">
-                    <input type="text" class="skladnik-wielkosc-input" placeholder="10">
+                    <input type="text" class="skladnik-nazwa-input">
+                    <input type="text" class="skladnik-wielkosc-input">
                     <select name="wybor" class="skladnik-typ-wielkosci-select">
                         <option value="g">g</option>
+                        <option value="kg">kg</option>
                         <option value="ml">ml</option>
+                        <option value="L">L</option>
                         <option value="szt.">szt.</option>
                     </select>
                 </div>
             </div>
             <div class="buttons-wiecej-mniej-elementow">
-                <button class="button-wiecej-elementow" id="skladniki-button-dodaj"><img src="../images/plus_ikonka.svg" alt="ikona_uzytkownika"></button>
-                <button class="button-mniej-elementow"  id="skladniki-button-usun" disabled><img src="../images/minus_ikonka.svg" alt="ikona_uzytkownika"></button>
+                <button class="button-wiecej-elementow" id="skladniki-button-dodaj"><img src="../images/plus_ikonka.svg" alt="Ikona plusa"></button>
+                <button class="button-mniej-elementow"  id="skladniki-button-usun" disabled><img src="../images/minus_ikonka.svg" alt="Ikona minusa"></button>
             </div>
 
             <br><br>
@@ -112,12 +114,12 @@
             <p>Przygotowanie</p>
             <div class="przygotowanie-box">
                 <div class="krok-przygotowania" id="przygotowanie-box-oryginal">
-                    <textarea class="textarea-krok-przygotowania">1. </textarea>
+                    <textarea class="textarea-krok-przygotowania"></textarea>
                 </div>
             </div>
             <div class="buttons-wiecej-mniej-elementow">
-                <button class="button-wiecej-elementow" id="przygotowanie-button-dodaj"><img src="../images/plus_ikonka.svg" alt="ikona_uzytkownika"></button>
-                <button class="button-mniej-elementow" id="przygotowanie-button-usun" disabled><img src="../images/minus_ikonka.svg" alt="ikona_uzytkownika"></button>
+                <button class="button-wiecej-elementow" id="przygotowanie-button-dodaj"><img src="../images/plus_ikonka.svg" alt="Ikona plusa"></button>
+                <button class="button-mniej-elementow" id="przygotowanie-button-usun" disabled><img src="../images/minus_ikonka.svg" alt="Ikona minusa"></button>
             </div>
 
 
@@ -125,13 +127,13 @@
 
             <p>Zdjęcia</p>
             <div class="zdjecia-box">
-                <button class="button-dodaj-zdjecie" onclick="wybierzZdjecia()"><img src="../images/plus_ikonka.svg" alt="ikona_uzytkownika"></button>
+                <button class="button-dodaj-zdjecie" onclick="wybierzZdjecia()"><img src="../images/plus_ikonka.svg" alt="Ikona plusa"></button>
             </div>
 
             <div class="podglad-zdjecia">
-                <!-- <img src="../images/dummy.png" alt="podglad" class="src-dodane-zdjecie">
-                <img src="../images/dummy.png" alt="podglad" class="src-dodane-zdjecie">
-                <img src="../images/dummy.png" alt="podglad" class="src-dodane-zdjecie"> -->
+                <!-- <img src="../images/dummy.png" alt="Podgląd dodanego zdjęcia" class="src-dodane-zdjecie">
+                <img src="../images/dummy.png" alt="Podgląd dodanego zdjęcia" class="src-dodane-zdjecie">
+                <img src="../images/dummy.png" alt="Podgląd dodanego zdjęcia" class="src-dodane-zdjecie"> -->
             </div>
         </div>
     </main>

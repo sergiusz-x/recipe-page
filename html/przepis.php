@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sernik krakowski</title>
+    <title>Przepisy kulinarne</title>
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     <link rel="stylesheet" href="../css/przepis.css">
     <link rel="stylesheet" href="../css/main.css">
@@ -16,31 +16,31 @@
     <nav>
         <a href="index.php">
             <div class="navbar-logo">
-                <img src="../images/logo.png" alt="logo">
+                <img src="../images/logo.png" alt="Logo strony">
                 <p>PRZEPISY KULINARNE</p>
             </div>
         </a>
 		
         <div class="navbar-search">
             <form action="szukaj.php" method="get">
-                <button class="search-icon" type="submit"><img src="../images/lupa.svg" alt="Search"></button>
+                <button class="search-icon" type="submit"><img src="../images/lupa.svg" alt="Ikona lupy"></button>
                 <input class="search-input" type="text" placeholder="Wyszukaj przepis" name="query">
             </form>
         </div>
 
         <a href="konto.php" class="navbar-user">
-            <img src="../images/person.svg" alt="ikona_uzytkownika">
+            <img src="../images/person.svg" alt="Ikona użytkownika">
         </a>
 	</nav>
 
 
-    <!-- <?php include('../php/przepis.php'); ?> -->
+    <?php include('../php/przepis.php'); ?>
 
     <!-- <br><br><br>
     <h1 style="text-align: center;">Ten przepis nie został znaleziony!</h1> -->
 
 
-    <main>
+    <!-- <main>
         <div class="kolumny">
             <div class="kolumna">
                 <h1>Sernik krakowski</h1>
@@ -48,19 +48,19 @@
                 <div class="ikonki-all-box">
                     <div class="ikonki-box">
                         <div class="image-ikonka-box">
-                            <img src="../images/latwosc_0.svg" alt="trudnosc">
+                            <img src="../images/latwosc_0.svg" alt="Ikona trudności">
                         </div>
                         <p>łatwe</p>
                     </div>
                     <div class="ikonki-box">
                         <div class="image-ikonka-box">
-                            <img src="../images/person.svg" alt="porcja">
+                            <img src="../images/person.svg" alt="Ikona osoby">
                         </div>
                         <p>10 os.</p>
                     </div>
                     <div class="ikonki-box">
                         <div class="image-ikonka-box">
-                            <img src="../images/zegar_ikonka.svg" alt="czas">
+                            <img src="../images/zegar_ikonka.svg" alt="Ikona zegara">
                         </div>
                         <p>70 min</p>
                     </div>
@@ -115,10 +115,10 @@
 
             <div class="kolumna">
                 <div class="zdjecie-przepisu">
-                    <img src="../images/dummy.png" alt="Opis obrazka" id="gallery-zdjecie">
+                    <img src="../images/dummy.png" alt="Zdjęcie przepisu" id="gallery-zdjecie">
                     <div class="buttons-gallery">
-                        <button><img src="../images/mniej_ikonka.svg" alt="poprzedni" id="button-gallery-lewo"></button>
-                        <button><img src="../images/wiecej_ikonka.svg" alt="nastepny" id="button-gallery-prawo"></button>
+                        <button><img src="../images/mniej_ikonka.svg" alt="Ikona strzałki w dół" id="button-gallery-lewo"></button>
+                        <button><img src="../images/wiecej_ikonka.svg" alt="Ikona strzałki w górę" id="button-gallery-prawo"></button>
                     </div>
                 </div>
         
@@ -152,6 +152,6 @@
 
     <footer>
         <p>Odwiedziny przepisu: 21</p>
-    </footer>
+    </footer> -->
 </body>
 </html>

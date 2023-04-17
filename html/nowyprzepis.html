@@ -2,6 +2,7 @@
 <html lang="pl-PL">
 <head>
     <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nowy przepis</title>
@@ -95,9 +96,9 @@
                     <input type="text" class="skladnik-nazwa-input" placeholder="nazwa">
                     <input type="text" class="skladnik-wielkosc-input" placeholder="10">
                     <select name="wybor" class="skladnik-typ-wielkosci-select">
-                        <option value="opcja1">g</option>
-                        <option value="opcja2">ml</option>
-                        <option value="opcja3">szt.</option>
+                        <option value="g">g</option>
+                        <option value="ml">ml</option>
+                        <option value="szt.">szt.</option>
                     </select>
                 </div>
             </div>
@@ -128,43 +129,10 @@
             </div>
 
             <div class="podglad-zdjecia">
-                <!-- <img src="../images/dummy.png" alt="podglad">
-                <img src="../images/dummy.png" alt="podglad">
-                <img src="../images/dummy.png" alt="podglad"> -->
+                <!-- <img src="../images/dummy.png" alt="podglad" class="src-dodane-zdjecie">
+                <img src="../images/dummy.png" alt="podglad" class="src-dodane-zdjecie">
+                <img src="../images/dummy.png" alt="podglad" class="src-dodane-zdjecie"> -->
             </div>
-
-            <script>
-                function wybierzZdjecia() {
-                    const input = document.createElement("input");
-                    input.type = "file";
-                    input.multiple = true;
-                    input.accept = "image/jpeg, image/png";
-                    input.addEventListener("change", wyswietlPodgladZdjec);
-                    input.click();
-                }
-
-                function wyswietlPodgladZdjec() {
-                    const podglad = document.querySelector(".podglad-zdjecia");
-                    podglad.innerHTML = ""; // usunięcie istniejących podglądów
-
-                    const pliki = Array.from(this.files); // konwersja obiektu FileList na tablicę
-
-                    if (pliki.length > 5) {
-                        alert("Można wybrać maksymalnie 5 plików!");
-                        return;
-                    }
-
-                    pliki.forEach((plik) => {
-                        const reader = new FileReader();
-                        reader.onload = function () {
-                            const miniatura = document.createElement("img");
-                            miniatura.src = this.result;
-                            podglad.appendChild(miniatura);
-                        }
-                        reader.readAsDataURL(plik);
-                    });
-                }
-            </script>
         </div>
     </main>
 </body>

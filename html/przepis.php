@@ -33,6 +33,9 @@
         </a>
 	</nav>
 
+
+    
+
     <!-- <br><br><br>
     <h1 style="text-align: center;">Ten przepis nie został znaleziony!</h1> -->
 
@@ -139,37 +142,12 @@
     </main>
 
     <script>
-        const gallery_przycisk_lewo = document.getElementById("button-gallery-lewo")
-        const gallery_przycisk_prawo = document.getElementById("button-gallery-prawo")
-        const gallery_zdjecie = document.getElementById("gallery-zdjecie")
-        //
-        let index = 0;
         let images = [
             "https://cdn.discordapp.com/attachments/929433539777290311/1097109004116820039/dsc_30035489481592470200000.png",
             "https://media.discordapp.net/attachments/929433539777290311/1097222648397832223/krok17600401592470200000.png",
             "https://media.discordapp.net/attachments/929433539777290311/1097222668773773453/krok24647251592470200000.png",
             "https://media.discordapp.net/attachments/929433539777290311/1097222690110193827/krok34239071592470201000.png"
         ]
-        //
-        function show_image() {
-            gallery_zdjecie.src = images[index]
-        }
-        //
-        gallery_przycisk_prawo.addEventListener('click', () => {
-            index++
-            if(index >= images.length) index = 0
-            //
-            show_image()
-        })
-        //
-        gallery_przycisk_lewo.addEventListener('click', () => {
-            index--
-            if(index < 0) index = images.length-1
-            //
-            show_image()
-        })
-        //
-        show_image()
     </script>
 
     <footer>

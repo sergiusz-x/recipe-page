@@ -87,7 +87,7 @@
     </main>
 
     <footer>
-        <!-- <p><?php include('../php/counter_index.php'); ?></p> -->
+        <p><?php include('../php/counter_index.php'); ?></p>
     </footer>
 </body>
 </html>

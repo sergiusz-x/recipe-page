@@ -257,7 +257,7 @@ input.skladnik-wielkosc-input {
 }
 .buttons-wiecej-mniej-elementow button:disabled {
     background-color: #F8EDE3;
-    box-shadow: 0;
+    box-shadow: none;
     cursor: not-allowed;
 }
 .button-wiecej-elementow, .button-mniej-elementow {

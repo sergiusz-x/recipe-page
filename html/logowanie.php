@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(isset($_SESSION['id'])) {
+        header("Location: konto.php");
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="pl-PL">
 <head>
@@ -32,19 +39,18 @@
             </div>
           
             <div class="login-form">
-              <input type="email" placeholder="E-mail">
-              <input type="password" placeholder="Hasło">
+                <input required type="email" name="email" placeholder="E-mail" value="admin@admin.pl">
+                <input required type="password" name="password" placeholder="Hasło" value="Adminadmin123!">
             </div>
           
             <div class="register-form" style="display:none;">
-              <input type="email" placeholder="E-mail">
-              <input type="text" placeholder="Pseudonim">
-              <input type="password" placeholder="Hasło">
+                <input required type="email" name="email" placeholder="E-mail" value="admin@admin.pl">
+                <input required type="text" name="pseudonim" placeholder="Pseudonim" value="Sergiusz">
+                <input required type="password" name="password" placeholder="Hasło" value="Adminadmin123!">
             </div>
           
             <button id="submit-button">Zaloguj</button>
           </div>
     </main>
-
 </body>
 </html>

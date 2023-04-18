@@ -1,6 +1,13 @@
 <?php
     require_once "connect.php";
     //
+    session_start();
+    if(!isset($_SESSION['id'])) {
+        echo "Błąd dodawania przepisu #0";
+        exit();
+    }
+    $autor_id = $_SESSION['id'];
+    //
     header('Content-Type: application/json; charset=utf-8');
     $json_str = file_get_contents('php://input');
     $data_json = json_decode($json_str, true);
@@ -20,6 +27,7 @@
     if(!isset($data_json['przygotowanie']) || empty($data_json['przygotowanie'])) { echo 'Brak wymaganych danych #6'; exit(); }
     if(!isset($data_json['zdjecia']) || empty($data_json['zdjecia'])) { echo 'Brak wymaganych danych #7'; exit(); }
     //
+    $id_przepisu = @$data_json['id_przepisu'];
     $nazwa_przepisu = $data_json['nazwa_przepisu'];
     $trudnosc = $data_json['trudnosc'];
     $porcja = $data_json['porcja'];
@@ -111,26 +119,30 @@
         return ($fileSize < $maxFileSize);
     }
     //
+    $fraza_zdjecie_zapisane = "./../images/przepisy/";
     foreach($zdjecia as $photo) {
-        //
-        $tmpFilePath = tempnam(sys_get_temp_dir(), 'img');
-        $imgData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $photo));
-        file_put_contents($tmpFilePath, $imgData);
-        //
-        if(!isImage($tmpFilePath)) continue;
-        if(!isFileSizeValid($tmpFilePath)) continue;
-        //
-        $randomName = 'zdjecie-przepisu-' . bin2hex(random_bytes(6)) . '-' . time() . '.jpg';
-        //
-        $extension = pathinfo($tmpFilePath, PATHINFO_EXTENSION);
-        $randomName = str_replace($extension, "", $randomName);
-        //
-        $filePath = $photosDir . $randomName;
-        //
-        if(rename($tmpFilePath, $filePath)) {
-            $zapisane_zdjecia[] = $randomName;
+        if(strpos($photo, $fraza_zdjecie_zapisane) === 0) {
+            $zapisane_zdjecia[] = str_replace($fraza_zdjecie_zapisane, "", $photo);
         } else {
-            @unlink($tmpFilePath);
+            $tmpFilePath = tempnam(sys_get_temp_dir(), 'img');
+            $imgData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $photo));
+            file_put_contents($tmpFilePath, $imgData);
+            //
+            if(!isImage($tmpFilePath)) continue;
+            if(!isFileSizeValid($tmpFilePath)) continue;
+            //
+            $randomName = 'zdjecie-przepisu-' . bin2hex(random_bytes(6)) . '-' . time() . '.jpg';
+            //
+            $extension = pathinfo($tmpFilePath, PATHINFO_EXTENSION);
+            $randomName = str_replace($extension, "", $randomName);
+            //
+            $filePath = $photosDir . $randomName;
+            //
+            if(rename($tmpFilePath, $filePath)) {
+                $zapisane_zdjecia[] = $randomName;
+            } else {
+                @unlink($tmpFilePath);
+            }
         }
         //
     }
@@ -149,10 +161,28 @@
     $przygotowanie = mysqli_real_escape_string($conn, $przygotowanie);
     $zapisane_zdjecia_txt = mysqli_real_escape_string($conn, $zapisane_zdjecia_txt);
     //
-    $query = "INSERT INTO przepisy (autor_id, nazwa, trudnosc, porcja, czas_realizacji, skladniki, przygotowanie, zdjecia, timestamp, counter_odwiedzin) VALUES (1, '$nazwa_przepisu', '$trudnosc', '$porcja', '$czas_realizacji', '$skladniki', '$przygotowanie', '$zapisane_zdjecia_txt', '$timestamp', 0)";
+    $query = "INSERT INTO przepisy (autor_id, nazwa, trudnosc, porcja, czas_realizacji, skladniki, przygotowanie, zdjecia, timestamp, counter_odwiedzin) VALUES ('$autor_id', '$nazwa_przepisu', '$trudnosc', '$porcja', '$czas_realizacji', '$skladniki', '$przygotowanie', '$zapisane_zdjecia_txt', '$timestamp', 0)";
+    $czy_istnieje = 0;
+    if($id_przepisu && is_numeric($id_przepisu)) {
+        $query = "SELECT * FROM `przepisy` WHERE id = $id_przepisu";
+        $query = mysqli_real_escape_string($conn, $query);
+        $results = $conn->query($query);
+        //
+        if ($results && $results->num_rows > 0) {
+            $row = $results->fetch_assoc();
+            $row_id = $row["id"];
+            $row_autor_id = $row["autor_id"];
+            if($row_id && $row_autor_id == $autor_id) {
+                //
+                $czy_istnieje = $row_id;
+                $query = "UPDATE `przepisy` SET `nazwa`='$nazwa_przepisu', `trudnosc`=$trudnosc, `porcja`=$porcja, `czas_realizacji`=$czas_realizacji, `skladniki`='$skladniki', `przygotowanie`='$przygotowanie', `zdjecia`='$zapisane_zdjecia_txt' WHERE `id` = $row_id";
+                //
+            }
+        }
+        //
+    }
     //
-    //
-    $keywordsqlinjection = array('select', 'update', 'delete', 'drop', 'create', ';', '--');
+    $keywordsqlinjection = array('select', 'delete', 'drop', 'create', ';', '--');
     $lowercase_query = strtolower($query);
     foreach($keywordsqlinjection as $word) {
         if(strpos($lowercase_query, $word) !== false) {
@@ -164,11 +194,14 @@
     $result = $conn->query($query);
     if ($result) {
         $id = $conn->insert_id;
+        if($czy_istnieje > 0) {
+            $id = $czy_istnieje;
+        }
         echo "$id";
     } else {
         echo "Błąd dodawania przepisu #4";
     }
     //
-    mysqli_close($conn);
+    $conn->close();
     //
 ?>

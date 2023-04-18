@@ -35,7 +35,7 @@
             <img src="../images/person.svg" alt="Ikona użytkownika">
         </a>
 	</nav>
-
+    
     <?php include('../php/szukaj.php'); ?>
     
     <!-- <main>

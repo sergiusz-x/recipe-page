@@ -95,6 +95,11 @@ nav {
     margin-right: 25px;
     margin-left: 10px;
 }
+.navbar-search-middle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .navbar-search form {
     display: flex;
     align-items: center;

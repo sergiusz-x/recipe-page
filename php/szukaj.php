@@ -3,8 +3,17 @@
     //
     $query = @urldecode(@$_GET['query']);
     $tresc_zapytania = $query;
-    if (!$query) {
-        echo '<br><br><br><h1 style="text-align: center;">Nie znaleziono żadnych przepisów!</h1>';
+    if(!$query || $tresc_zapytania == "" || str_replace($tresc_zapytania, " ", "") == "") {
+        echo '
+        <main>
+            <p style="text-align: center; margin-top: 100px;">Wpisz przepis który chcesz wyszukać!</p>
+            <div class="navbar-search navbar-search-middle">
+                <form action="szukaj.php" method="get">
+                    <button class="search-icon" type="submit"><img src="../images/lupa.svg" alt="Ikona lupy"></button>
+                    <input class="search-input" type="text" placeholder="Wyszukaj przepis" name="query">
+                </form>
+            </div>
+        </main>';
         exit();
     }
     //
@@ -29,8 +38,9 @@
     //
     $results = $conn->query($zapytanie_sql_tresc);
     $lista_przepisow = "";
+    $liczba_przepisow = @$results->num_rows;
     //
-    if (!$results || $results->num_rows == 0) {
+    if (!$results || $liczba_przepisow == 0) {
         echo '<br><br><br><h1 style="text-align: center;">Nie znaleziono żadnych przepisów dla: '.$tresc_zapytania.'</h1>';
         exit();
     }
@@ -59,5 +69,9 @@
         '.$lista_przepisow.'
     </div>
 </main>
+
+<footer>
+    <p>Znalezionych przepisów: '.$liczba_przepisow.'</p>
+</footer> -->
     ';
 ?>

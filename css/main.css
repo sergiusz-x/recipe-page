@@ -95,11 +95,6 @@ nav {
     margin-right: 25px;
     margin-left: 10px;
 }
-.navbar-search-middle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 .navbar-search form {
     display: flex;
     align-items: center;
@@ -142,6 +137,16 @@ nav {
 .navbar-search button[type="submit"] img:hover {
     transform: scale(1.1);
 }
+.navbar-search-middle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navbar-search-middle input[type="text"] {
+    width: 400px;
+}
+
+
 
 
 .navbar-user {

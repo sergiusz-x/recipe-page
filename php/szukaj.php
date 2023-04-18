@@ -2,18 +2,21 @@
     require_once "connect.php";
     //
     $query = @urldecode(@$_GET['query']);
-    $tresc_zapytania = $query;
-    if(!$query || $tresc_zapytania == "" || str_replace($tresc_zapytania, " ", "") == "") {
+    if(!$query || $query == "" || str_replace(" ", "", $query) == "") {
         echo '
         <main>
-            <p style="text-align: center; margin-top: 100px;">Wpisz przepis który chcesz wyszukać!</p>
+            <p style="text-align: center; margin-top: 100px; font-size: 20px;">Wpisz przepis który chcesz wyszukać!</p>
             <div class="navbar-search navbar-search-middle">
                 <form action="szukaj.php" method="get">
                     <button class="search-icon" type="submit"><img src="../images/lupa.svg" alt="Ikona lupy"></button>
                     <input class="search-input" type="text" placeholder="Wyszukaj przepis" name="query">
                 </form>
             </div>
-        </main>';
+        </main>
+        <script>
+            const div_navbar_search =document.getElementById("div-navbar-search")
+            if(div_navbar_search) div_navbar_search.style = "display: none;"
+        </script>';
         exit();
     }
     //

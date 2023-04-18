@@ -65,7 +65,7 @@
     </div>
     <br><br>
     <h1>Ostatnio dodane przepisy</h1>
-    <div class="polecane-przepisy-box">
+    <div class="polecane-przepisy-box ostatnio-dodane-przepisy-box">
         '.$lista_przepisow_ostatnie.'
     </div>
 </main>

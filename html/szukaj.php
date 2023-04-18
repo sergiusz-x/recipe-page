@@ -24,7 +24,7 @@
             </div>
         </a>
 		
-        <div class="navbar-search">
+        <div class="navbar-search" id="div-navbar-search">
             <form action="szukaj.php" method="get">
                 <button class="search-icon" type="submit"><img src="../images/lupa.svg" alt="Ikona lupy"></button>
                 <input class="search-input" type="text" placeholder="Wyszukaj przepis" name="query">
@@ -37,6 +37,7 @@
 	</nav>
     
     <?php include('../php/szukaj.php'); ?>
+
     
     <!-- <main>
         <div class="znalezione-przepisy-box">

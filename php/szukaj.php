@@ -75,6 +75,6 @@
 
 <footer>
     <p>Znalezionych przepisów: '.$liczba_przepisow.'</p>
-</footer> -->
+</footer>
     ';
 ?>

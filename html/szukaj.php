@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/main.css">
 
     <script src="../js/navbar.js"></script>
+    <script src="../js/canvas_logo.js"></script>
 
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono">
@@ -19,7 +20,8 @@
     <nav>
         <a href="index.php">
             <div class="navbar-logo">
-                <img src="../images/logo.png" alt="Logo strony">
+                <noscript><img src="../images/logo.png" alt="Logo strony"></noscript>
+                <canvas id="canvas-logo" width="110" height="110"></canvas>
                 <p>PRZEPISY KULINARNE</p>
             </div>
         </a>

@@ -41,7 +41,7 @@
     //
     $query_szukaj = "SELECT * FROM users WHERE email = '$email' AND haslo = '$hashed_password'";
     //
-    $keywordsqlinjection = array('insert', 'update', 'delete', 'drop', 'create', ';', '--');
+    $keywordsqlinjection = array('insert', 'truncate', 'update', 'delete', 'drop', 'create', ';', '--');
     $lowercase_query_szukaj = strtolower($query_szukaj);
     foreach($keywordsqlinjection as $word) {
         if(strpos($lowercase_query_szukaj, $word) !== false) {

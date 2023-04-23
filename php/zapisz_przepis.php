@@ -40,7 +40,7 @@
     //
     function validate_data($nazwa_przepisu, $trudnosc, $porcja, $czas_realizacji, $skladniki, $przygotowanie, $zdjecia) {
         // Walidacja nazwy przepisu
-        if (!is_string($nazwa_przepisu) || strlen($nazwa_przepisu) < 1) {
+        if (!is_string($nazwa_przepisu) || strlen($nazwa_przepisu) < 1 || strlen($nazwa_przepisu) > 50) {
             return false;
         }
         // Walidacja trudności
@@ -63,7 +63,7 @@
             if (!is_array($skladnik) || !array_key_exists('nazwa', $skladnik) || !array_key_exists('wielkosc', $skladnik) || !array_key_exists('typ_wielkosci', $skladnik)) {
                 return false;
             }
-            if (!is_string($skladnik['nazwa']) || strlen($skladnik['nazwa']) < 1) {
+            if (!is_string($skladnik['nazwa']) || strlen($skladnik['nazwa']) < 1 || strlen($skladnik['nazwa']) > 40) {
                 return false;
             }
             if (!is_numeric($skladnik['wielkosc']) || $skladnik['wielkosc'] < 0) {
@@ -79,7 +79,7 @@
             return false;
         }
         foreach ($przygotowanie as $krok) {
-            if (!is_string($krok) || strlen($krok) < 1) {
+            if (!is_string($krok) || strlen($krok) < 1 || strlen($krok) > 1000) {
                 return false;
             }
         }
@@ -164,9 +164,9 @@
     $query = "INSERT INTO przepisy (autor_id, nazwa, trudnosc, porcja, czas_realizacji, skladniki, przygotowanie, zdjecia, timestamp, counter_odwiedzin) VALUES ('$autor_id', '$nazwa_przepisu', '$trudnosc', '$porcja', '$czas_realizacji', '$skladniki', '$przygotowanie', '$zapisane_zdjecia_txt', '$timestamp', 0)";
     $czy_istnieje = 0;
     if($id_przepisu && is_numeric($id_przepisu)) {
-        $query = "SELECT * FROM `przepisy` WHERE id = $id_przepisu";
-        $query = mysqli_real_escape_string($conn, $query);
-        $results = $conn->query($query);
+        $query_szukaj_przepis = "SELECT * FROM `przepisy` WHERE id = $id_przepisu";
+        $query_szukaj_przepis = mysqli_real_escape_string($conn, $query_szukaj_przepis);
+        $results = $conn->query($query_szukaj_przepis);
         //
         if ($results && $results->num_rows > 0) {
             $row = $results->fetch_assoc();
@@ -182,7 +182,7 @@
         //
     }
     //
-    $keywordsqlinjection = array('select', 'delete', 'drop', 'create', ';', '--');
+    $keywordsqlinjection = array('select', 'truncate', 'delete', 'drop', 'create', ';', '--');
     $lowercase_query = strtolower($query);
     foreach($keywordsqlinjection as $word) {
         if(strpos($lowercase_query, $word) !== false) {

@@ -56,6 +56,8 @@ function pobierz_dane_przepisu() {
                     wielkosc: Number(wielkosc),
                     typ_wielkosci: typ_wielkosci
                 })
+            } else {
+                return alert("Wielkość jednego z składników nie jest liczbą!")
             }
         }
     }
@@ -76,16 +78,6 @@ function pobierz_dane_przepisu() {
         dane.zdjecia.push(src)
     }
     //
-    //
-    // dane.nazwa_przepisu = "test"
-    // dane.skladniki = [{
-    //     nazwa: "cukier",
-    //     wielkosc: 10,
-    //     typ_wielkosci: "g"
-    // }]
-    // dane.przygotowanie = ["1. Zmieszać składniki"]
-    // dane.zdjecia = ["../images/dummy.png", "../images/dummy.png"]
-    //
     return dane
 }
 
@@ -97,6 +89,8 @@ function zapisanie_przepisu() {
         //
         if(!dane_przepisu.nazwa_przepisu || dane_przepisu.nazwa_przepisu.length == 0) {
             return alert("Uzupełnij nazwę przepisu!")
+        } else if(dane_przepisu.nazwa_przepisu.length > 50) {
+            return alert("Nazwa przepisu jest zbyt długa!")
         }
         //
         if((!dane_przepisu.trudnosc && dane_przepisu.trudnosc !== 0) || isNaN(dane_przepisu.trudnosc)) {
@@ -111,10 +105,28 @@ function zapisanie_przepisu() {
         //
         if(!dane_przepisu.skladniki || dane_przepisu.skladniki.length == 0) {
             return alert("Uzupełnij składniki przepisu!")
+        } else {
+            let ifReturn = false
+            dane_przepisu.skladniki.forEach(skladnik => {
+                if(skladnik.nazwa.length > 40) {
+                    ifReturn = true
+                    return alert("Nazwa jednego z składników jest zbyt długa!")  
+                }
+            })
+            if(ifReturn) return
         }
         //
         if(!dane_przepisu.przygotowanie || dane_przepisu.przygotowanie.length == 0 || dane_przepisu.przygotowanie[0] == "1. ") {
             return alert("Uzupełnij etapy przygotowania przepisu!")
+        } else {
+            let ifReturn = false
+            dane_przepisu.przygotowanie.forEach(przygotowanie => {
+                if(przygotowanie.length > 1000) {
+                    ifReturn = true
+                    return alert("Jeden z kroków przygotowania jest zbyt długi!")  
+                }
+            })
+            if(ifReturn) return
         }
         //
         if(!dane_przepisu.zdjecia || dane_przepisu.zdjecia.length == 0) {
@@ -391,4 +403,14 @@ function sprawdzanieCzyEdytujePrzepis() {
     }).catch(error => {
         console.error(error)
     });
+}
+
+function zmienKolejnoscZdjec() {
+    let zdjecia = document.querySelectorAll(".src-dodane-zdjecie")
+    if(zdjecia.length == 0) return
+    //
+    let pierwszy = zdjecia[0];
+    let rodzic = pierwszy.parentNode;
+    rodzic.removeChild(pierwszy);
+    rodzic.appendChild(pierwszy);
 }

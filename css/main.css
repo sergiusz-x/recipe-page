@@ -36,6 +36,9 @@ nav {
 .navbar-logo img {
     height: 100px;
 }
+.navbar-logo canvas {
+    text-align: center;
+}
 .navbar-logo p {
     margin-left: 15px;
     font-size: 50px;

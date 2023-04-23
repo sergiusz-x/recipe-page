@@ -40,53 +40,6 @@
         <p><?php include('../php/counter_index.php'); ?></p>
     </footer>
 
-    <?php include('../php/index.php'); ?>
-    
-    <!-- <main>
-        <h1>Polecane przepisy</h1>
-        <div class="polecane-przepisy-box">
-            <div class="przepis-box" onclick="window.location.href = `${window.location.pathname}/../przepis.php?id=75` ">
-                <div class="image-box">
-                    <img src="../images/dummy.png" alt="Zdjęcie przepisu">
-                </div>
-                <p>Tekst pod obrazkiem</p>
-            </div>
-            <div class="przepis-box" onclick="window.location.href = `${window.location.pathname}/../przepis.php?id=75` ">
-                <div class="image-box">
-                    <img src="../images/dummy.png" alt="Zdjęcie przepisu">
-                </div>
-                <p>Tekst pod obrazkiem</p>
-            </div>
-            <div class="przepis-box" onclick="window.location.href = `${window.location.pathname}/../przepis.php?id=75` ">
-                <div class="image-box">
-                    <img src="../images/dummy.png" alt="Zdjęcie przepisu">
-                </div>
-                <p>Tekst pod obrazkiem</p>
-            </div>
-        </div>
-        <br><br>
-        <h1>Ostatnio dodane przepisy</h1>
-        <div class="polecane-przepisy-box ostatnio-dodane-przepisy-box">
-            <div class="przepis-box" onclick="window.location.href = `${window.location.pathname}/../przepis.php?id=75`">
-                <div class="image-box">
-                    <img src="../images/dummy.png" alt="Zdjęcie przepisu">
-                </div>
-                <p>Tekst pod obrazkiem</p>
-            </div>
-            <div class="przepis-box" onclick="window.location.href = `${window.location.pathname}/../przepis.php?id=75` ">
-                <div class="image-box">
-                    <img src="../images/dummy.png" alt="Zdjęcie przepisu">
-                </div>
-                <p>Tekst pod obrazkiem</p>
-            </div>
-            <div class="przepis-box" onclick="window.location.href = `${window.location.pathname}/../przepis.php?id=75` ">
-                <div class="image-box">
-                    <img src="../images/dummy.png" alt="Zdjęcie przepisu">
-                </div>
-                <p>Tekst pod obrazkiem</p>
-            </div>
-        </div>
-    </main> -->
-    
+    <?php include('../php/index.php'); ?> 
 </body>
 </html>

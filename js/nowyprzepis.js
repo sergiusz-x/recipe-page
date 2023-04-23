@@ -47,7 +47,7 @@ function pobierz_dane_przepisu() {
     for(const skladnik_div of skladniki_all_div) {
         const nazwa = skladnik_div.querySelector(".skladnik-nazwa-input")?.value
         const wielkosc = skladnik_div.querySelector(".skladnik-wielkosc-input")?.value
-        const typ_wielkosci = skladnik_div.querySelector(".skladnik-typ-wielkosci-select")?.value;
+        const typ_wielkosci = skladnik_div.querySelector(".skladnik-typ-wielkosci-select")?.value
         //
         if(nazwa && wielkosc && typ_wielkosci) {
             if(!isNaN(Number(wielkosc))) {
@@ -157,7 +157,7 @@ function zapisanie_przepisu() {
             }
         }).catch(error => {
             console.error(error)
-        });
+        })
     })
 }
 
@@ -218,9 +218,6 @@ function dodawanie_usuwanie_elementow_skladniki_przygotowanie() {
     // PRZYGOTOWANIE
     const przygotowanie_przycisk_dodaj = document.getElementById("przygotowanie-button-dodaj")
     const przygotowanie_przycisk_usun = document.getElementById("przygotowanie-button-usun")
-    const przygotowanie_box_div = document.querySelector(".przygotowanie-box")
-    const przygotowanie_box_oryginal = document.getElementById("przygotowanie-box-oryginal")
-    //
     //
     skladniki_przycisk_dodaj.addEventListener('click', () => {
         dodaj_usun_skladniki(true)
@@ -269,17 +266,17 @@ function zwiekszanie_zmniejszanie_licznikow() {
     //
     porcja_przycisk_zwieksz.addEventListener('click', () => {
         porcja_wartosc.innerHTML = get_txt(porcja_wartosc.innerHTML, 1, "osoby", [1, 30])
-    });
+    })
     porcja_przycisk_zmniejsz.addEventListener('click', () => {
         porcja_wartosc.innerHTML = get_txt(porcja_wartosc.innerHTML, -1, "osoby", [1, 30])
-    });
+    })
     //
     czasrealizacji_przycisk_zwieksz.addEventListener('click', () => {
         czasrealizacji_wartosc.innerHTML = get_txt(czasrealizacji_wartosc.innerHTML, 5, "minuty", [5, 120])
-    });
+    })
     czasrealizacji_przycisk_zmniejsz.addEventListener('click', () => {
         czasrealizacji_wartosc.innerHTML = get_txt(czasrealizacji_wartosc.innerHTML, -5, "minuty", [5, 120])
-    });
+    })
 }
 
 function wybierzZdjecia() {
@@ -307,16 +304,16 @@ function wyswietlPodgladZdjec() {
         reader.onload = function () {
             const miniatura = document.createElement("img")
             miniatura.src = this.result
-            miniatura.classList.add("src-dodane-zdjecie");
+            miniatura.classList.add("src-dodane-zdjecie")
             podglad.appendChild(miniatura)
         }
         reader.readAsDataURL(plik)
-    });
+    })
 }
 
 function sprawdzanieCzyEdytujePrzepis() {
-    const params = new URLSearchParams(window.location.search);
-    const przepisId = params.get('id_przepisu');
+    const params = new URLSearchParams(window.location.search)
+    const przepisId = params.get('id_przepisu')
     if(!przepisId) return
     const dane_przepisu = { id: przepisId }
     //
@@ -392,7 +389,7 @@ function sprawdzanieCzyEdytujePrzepis() {
         json.zdjecia.forEach(src => {
             const miniatura = document.createElement("img")
             miniatura.src = `./../images/przepisy/${src}`
-            miniatura.classList.add("src-dodane-zdjecie");
+            miniatura.classList.add("src-dodane-zdjecie")
             podglad.appendChild(miniatura)
         })
         //
@@ -402,15 +399,16 @@ function sprawdzanieCzyEdytujePrzepis() {
         //
     }).catch(error => {
         console.error(error)
-    });
+    })
 }
 
 function zmienKolejnoscZdjec() {
     let zdjecia = document.querySelectorAll(".src-dodane-zdjecie")
     if(zdjecia.length == 0) return
     //
-    let pierwszy = zdjecia[0];
-    let rodzic = pierwszy.parentNode;
-    rodzic.removeChild(pierwszy);
-    rodzic.appendChild(pierwszy);
+    let pierwszy = zdjecia[0]
+    let rodzic = pierwszy.parentNode
+    rodzic.removeChild(pierwszy)
+    rodzic.appendChild(pierwszy)
+    //
 }

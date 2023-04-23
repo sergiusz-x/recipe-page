@@ -41,17 +41,17 @@
             </div>
           
             <div class="login-form">
-                <input required type="email" name="email" placeholder="E-mail" value="admin@admin.pl">
-                <input required type="password" name="password" placeholder="Hasło" value="Adminadmin123!">
+                <input required type="email" name="email" placeholder="E-mail">
+                <input required type="password" name="password" placeholder="Hasło">
             </div>
           
             <div class="register-form" style="display:none;">
-                <input required type="email" name="email" placeholder="E-mail" value="admin@admin.pl">
-                <input required type="text" name="pseudonim" placeholder="Pseudonim" value="Sergiusz">
-                <input required type="password" name="password" placeholder="Hasło" value="Adminadmin123!">
+                <input required type="email" name="email" placeholder="E-mail">
+                <input required type="text" name="pseudonim" placeholder="Pseudonim">
+                <input required type="password" name="password" placeholder="Hasło">
             </div>
           
-            <button id="submit-button">Zaloguj</button>
+            <button type="submit" id="submit-button">Zaloguj</button>
           </div>
     </main>
 </body>

@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const gallery_przycisk_prawo = document.getElementById("button-gallery-prawo")
         const gallery_zdjecie = document.getElementById("gallery-zdjecie")
         //
-        let index = 0;
+        let index = 0
         if(!images || images.length == 0) {
             images = ["../images/dummy.png"]
         }

@@ -36,28 +36,5 @@
 	</nav>
 
     <?php include('../php/konto.php'); ?>
-
-    <!-- <main>
-        <h1>Witaj Sergiusz!</h1>
-
-        <div class="buttons-zarzadzanie">
-            <div class="button">
-                <a href="./../php/logout.php">Wyloguj</a>
-            </div>
-        </div>
-
-        <br><br>
-
-        <h3>Twoje przepisy</h3>
-
-        <div class="searched-przepisy-box">
-            <div class="przepis-box">
-                <img src="../images/dummy.png" alt="Zdjęcie przepisu">
-                <p>Sernik krakowski</p>
-                <button><img src="../images/edytuj_ikonka.svg" alt="Ikona klucza">Edytuj</button>
-                <button><img src="../images/usun_ikonka.svg" alt="Ikona usunięcia">Usuń</button>
-            </div>
-        </div>
-    </main> -->
 </body>
 </html>

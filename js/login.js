@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
     //
-    // Obsługa logowania i rejestracji
     const loginBtn = document.getElementById('login-button')
     const registerBtn = document.getElementById('register-button')
     const submitBtn = document.getElementById('submit-button')
@@ -64,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return location.reload()
             }).catch(error => {
                 console.error(error)
-            });
+            })
         } else if(submitBtn.innerHTML == "Zaloguj") {
             const email = loginForm.querySelector('input[name="email"]')?.value
             const haslo = loginForm.querySelector('input[name="password"]')?.value
@@ -98,8 +97,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 window.location.href = `${window.location.pathname}/../konto.php`
             }).catch(error => {
                 console.error(error)
-            });
+            })
         }
     })
     //
-});
+})

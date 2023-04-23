@@ -39,21 +39,5 @@
 	</nav>
     
     <?php include('../php/szukaj.php'); ?>
-
-    
-    <!-- <main>
-        <div class="znalezione-przepisy-box">
-            <div class="przepis-box" onclick="window.location.href = `${window.location.pathname}/../przepis.php?id=0` ">
-                <div class="image-box">
-                    <img src="../images/dummy.png" alt="Zdjęcie przepisu">
-                </div>
-                <p>Sernik krakowski</p>
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <p>Znalezionych przepisów: 12</p>
-    </footer> -->
 </body>
 </html>

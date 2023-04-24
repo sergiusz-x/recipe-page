@@ -107,6 +107,7 @@
     //
     $zapisane_zdjecia = [];
     $photosDir = __DIR__ . '\\..\\images\\przepisy\\';
+    $photosTempDir = __DIR__ . '\\..\\images\\przepisy\\temp\\';
     //
     function isImage($file) {
         $size = getimagesize($file);
@@ -119,12 +120,15 @@
         return ($fileSize < $maxFileSize);
     }
     //
+    //
+    // Wersja klasyczna z zapisywaniem pliku w folderze
+    /*
     $fraza_zdjecie_zapisane = "./../images/przepisy/";
     foreach($zdjecia as $photo) {
         if(strpos($photo, $fraza_zdjecie_zapisane) === 0) {
             $zapisane_zdjecia[] = str_replace($fraza_zdjecie_zapisane, "", $photo);
         } else {
-            $tmpFilePath = tempnam(sys_get_temp_dir(), 'img');
+            $tmpFilePath = tempnam($photosTempDir, 'img');
             $imgData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $photo));
             file_put_contents($tmpFilePath, $imgData);
             //
@@ -145,7 +149,10 @@
             }
         }
         //
-    }
+    } 
+    */
+    //
+    //
     if(empty($zapisane_zdjecia)) {
         $zapisane_zdjecia[] = "../dummy.png";
     }
@@ -196,12 +203,22 @@
         $id = $conn->insert_id;
         if($czy_istnieje > 0) {
             $id = $czy_istnieje;
+            //
+            $query = 'DELETE FROM `images` WHERE `przepis_id` = "'.$id.'"';
+            $conn->query($query);
         }
+        zapisz_zdjecia($zdjecia, $id, $conn);
         echo "$id";
     } else {
         echo "Błąd dodawania przepisu #4";
     }
     //
-    $conn->close();
+    function zapisz_zdjecia($zdjecia, $id_przepisu, $conn) {
+        foreach($zdjecia as $photo) {
+            $query = "INSERT INTO `images` (`przepis_id`, `data`) VALUES ('$id_przepisu', '$photo')";
+            $conn->query($query);
+        } 
+    }
     //
+    $conn->close();
 ?>

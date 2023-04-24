@@ -35,6 +35,9 @@
         $query = "DELETE FROM `przepisy` WHERE `id` = $row_id";
         $query = mysqli_real_escape_string($conn, $query);
         $results = $conn->query($query);
+        //
+        $query = 'DELETE FROM `images` WHERE `przepis_id` = "'.$row_id.'"';
+        $conn->query($query);
     }
     //
     $conn->close();

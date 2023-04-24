@@ -1,5 +1,6 @@
 <?php
     require_once "connect.php";
+    require_once "pobierz_zdjecia_przepisu.php";
     //
     $query = @urldecode(@$_GET['query']);
     if(!$query || $query == "" || str_replace(" ", "", $query) == "") {
@@ -26,10 +27,10 @@
         exit();
     }
     //
+    $tresc_zapytania = $query;
     $query = strtolower(str_replace(' ', '', $query));
     $query = mysqli_real_escape_string($conn, $query);
     $zapytanie_sql_tresc = "SELECT * FROM `przepisy` WHERE LOWER(REPLACE(nazwa, ' ', '')) LIKE '%$query%'";
-    $zapytanie_sql_tresc = mysqli_real_escape_string($conn, $zapytanie_sql_tresc);
     //
     $keywordsqlinjection = array('insert', 'truncate', 'update', 'delete', 'drop', 'create', ';', '--');
     $lowercase_query = strtolower($zapytanie_sql_tresc);
@@ -54,7 +55,8 @@
         $id_przepisu = $row["id"];
         $nazwa_przepisu = $row["nazwa"];
         $zdjecia_przepisu_list = json_decode($row['zdjecia'], true, JSON_UNESCAPED_UNICODE);
-        $zdjecie_przepisu = './../images/przepisy/' . $zdjecia_przepisu_list[0];
+        // $zdjecie_przepisu = './../images/przepisy/' . $zdjecia_przepisu_list[0];
+        $zdjecie_przepisu = get_zdjecia_przepisu($conn, $id_przepisu, true);
         //
         $lista_przepisow .= 
         '<div class="przepis-box" onclick="window.location.href = `${window.location.pathname}/../przepis.php?id='.$id_przepisu.'` ">

@@ -5,6 +5,7 @@
     }
     $user_id = @$_SESSION['id'];
     require_once "connect.php";
+    require_once "pobierz_zdjecia_przepisu.php";
     //
     header('Content-Type: application/json; charset=utf-8');
     $json_str = file_get_contents('php://input');
@@ -27,14 +28,17 @@
         exit();
     }
     //
-    $conn->close();
-    //
     $row = $results->fetch_assoc();
     $row_autor_id = $row["autor_id"];
     $row_id = $row["id"];
     if($row_id && $row_autor_id == $user_id) {
+        //
+        $row["zdjecia"] = get_zdjecia_przepisu($conn, $id_przepisu, false);
+        $row["zdjecia"] = json_encode($row["zdjecia"]);
+        //
         $json = json_encode($row, JSON_UNESCAPED_UNICODE);
         echo "$json";
     }
+    $conn->close();
     exit();
 ?>

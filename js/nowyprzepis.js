@@ -385,7 +385,8 @@ function sprawdzanieCzyEdytujePrzepis() {
         const podglad = document.querySelector(".podglad-zdjecia")
         json.zdjecia.forEach(src => {
             const miniatura = document.createElement("img")
-            miniatura.src = `./../images/przepisy/${src}`
+            miniatura.src = `${src}` // `./../images/przepisy/${src}`
+            miniatura.alt = "Podgląd dodanego zdjęcia"
             miniatura.classList.add("src-dodane-zdjecie")
             podglad.appendChild(miniatura)
         })

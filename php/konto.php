@@ -11,6 +11,7 @@
         exit();
     }
     //
+    require_once "pobierz_zdjecia_przepisu.php";
     require_once "connect.php";
     $conn = @new mysqli($db_host, $db_user, $db_password, $db_name);
     if ($conn->connect_error) {
@@ -42,8 +43,11 @@
             //
             $id_przepisu = $row["id"];
             $nazwa_przepisu = $row["nazwa"];
+            /*
             $zdjecia_przepisu_list = json_decode($row['zdjecia'], true, JSON_UNESCAPED_UNICODE);
             $zdjecie_przepisu = './../images/przepisy/' . $zdjecia_przepisu_list[0];
+            */
+            $zdjecie_przepisu = get_zdjecia_przepisu($conn, $id_przepisu, true);
             //
             $lista_przepisow .= 
             '<div class="przepis-box">

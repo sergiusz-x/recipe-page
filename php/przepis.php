@@ -1,5 +1,6 @@
 <?php
     require_once "connect.php";
+    require_once "pobierz_zdjecia_przepisu.php";
     //
     $id = @$_GET['id'];
     if (!is_numeric($id)) {
@@ -54,6 +55,8 @@
     }
     //
     //
+    /*
+    Wersja klasyczna
     $zdjecia_list = json_decode($row['zdjecia'], true, JSON_UNESCAPED_UNICODE);
     $zdjecie = './../images/przepisy/' . $zdjecia_list[0];
     $zdjecia_list_txt = json_decode($row['zdjecia'], true, JSON_UNESCAPED_UNICODE);
@@ -61,6 +64,12 @@
         $zdjecie = './../images/przepisy/' . $zdjecie;
     }
     $zdjecia_list_txt = json_encode($zdjecia_list_txt);
+    */
+    //
+    //
+    $zdjecia_list_txt = $zdjecia_list_txt = get_zdjecia_przepisu($conn, $id, false);
+    $zdjecia_list_txt = json_encode($zdjecia_list_txt);
+    //
     //
     //
     $kroki = '';

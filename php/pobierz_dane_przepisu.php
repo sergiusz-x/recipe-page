@@ -14,7 +14,7 @@
     }
     $id_przepisu = $data_json['id'];
     //
-    $conn = @new mysqli($db_host, $db_user, $db_password, "strona");
+    $conn = @new mysqli($db_host, $db_user, $db_password, $db_name);
     if ($conn->connect_error) {
         exit();
     }

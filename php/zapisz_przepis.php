@@ -13,7 +13,7 @@
     $data_json = json_decode($json_str, true);
     //
     //
-    $conn = @new mysqli($db_host, $db_user, $db_password, "strona");
+    $conn = @new mysqli($db_host, $db_user, $db_password, $db_name);
     if ($conn->connect_error) {
         echo "Błąd dodawania przepisu #1";
         exit();

@@ -291,14 +291,13 @@ function wybierzZdjecia() {
 function wyswietlPodgladZdjec() {
     const podglad = document.querySelector(".podglad-zdjecia")
     podglad.innerHTML = ""
-
+    //
     const pliki = Array.from(this.files)
-
     if (pliki.length > 5) {
         alert("Można wybrać maksymalnie 5 plików!")
         return
     }
-
+    //
     pliki.forEach((plik) => {
         const reader = new FileReader()
         reader.onload = function () {
@@ -335,8 +334,6 @@ function sprawdzanieCzyEdytujePrzepis() {
         json.skladniki = JSON.parse(json.skladniki)
         json.przygotowanie = JSON.parse(json.przygotowanie)
         json.zdjecia = JSON.parse(json.zdjecia)
-        console.log(json)
-        //
         //
         // Nazwa
         let input_nazwa_przepisu = document.getElementById("nazwa-przepisu")
@@ -410,5 +407,4 @@ function zmienKolejnoscZdjec() {
     let rodzic = pierwszy.parentNode
     rodzic.removeChild(pierwszy)
     rodzic.appendChild(pierwszy)
-    //
 }

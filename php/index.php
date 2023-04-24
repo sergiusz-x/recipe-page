@@ -10,6 +10,9 @@
     $query_polecane = "SELECT * FROM przepisy ORDER BY counter_odwiedzin DESC LIMIT 6";
     $query_ostatnie = "SELECT * FROM przepisy ORDER BY timestamp DESC LIMIT 6";
     //
+    $query_polecane = mysqli_real_escape_string($conn, $query_polecane);
+    $query_ostatnie = mysqli_real_escape_string($conn, $query_ostatnie);
+    //
     $result_polecane = $conn->query($query_polecane);
     $result_ostatnie = $conn->query($query_ostatnie);
     //

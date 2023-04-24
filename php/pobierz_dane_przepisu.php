@@ -13,8 +13,6 @@
         exit();
     }
     $id_przepisu = $data_json['id'];
-    // echo "$id_przepisu  $user_id";
-    // exit();
     //
     $conn = @new mysqli($db_host, $db_user, $db_password, "strona");
     if ($conn->connect_error) {

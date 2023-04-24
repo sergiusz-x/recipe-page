@@ -21,12 +21,16 @@
     $query = "SELECT * FROM `przepisy` WHERE `autor_id` = $id ORDER BY timestamp DESC";
     $query_user = "SELECT * FROM `users` WHERE `id` = $id";
     //
+    $query = mysqli_real_escape_string($conn, $query);
+    $query_user = mysqli_real_escape_string($conn, $query_user);
+    //
     $results = $conn->query($query);
     $results_user = $conn->query($query_user);
     $lista_przepisow = "";
     //
     if (!$results_user || $results_user->num_rows == 0) {
         echo '<p style="text-align: center;">Nie znaleziono tego użytkownika!</p>';
+        header("Location: ./../html/logowanie.php");
         session_unset();
         exit();
     }

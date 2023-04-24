@@ -2,7 +2,6 @@ main h1 {
     font-size: 56px;
     text-align: center;
 }
-
 .przepis-box {
     display: flex;
     flex-direction: column;
@@ -34,7 +33,6 @@ main h1 {
     object-fit: cover;
     border-radius: 10px;
 }
-
 .polecane-przepisy-box {
     display: flex;
     justify-content: space-around;
@@ -43,15 +41,6 @@ main h1 {
     max-width: 85%;
     margin: 0 auto;
 }
-
 .ostatnio-dodane-przepisy-box {
     margin-bottom: 150px;
 }
-
-/*
-KOLOR 1: #F8EDE3
-KOLOR 2: #BDD2B6
-KOLOR 3: #A2B29F
-KOLOR 4: #798777
-KOLOR 5: #353D34
-*/

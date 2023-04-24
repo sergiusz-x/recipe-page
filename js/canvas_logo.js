@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
             image_walek = this
             start()
         }
-        //
     }
     //
     const skala_obrazka = 0.85
@@ -40,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
     //
     //
     function rotateImage(image, angle, ifClear) {
-        //
         if(ifClear) ctx.clearRect(-szerokosc_canvas, -wysokosc_canvas, szerokosc_canvas*2 + szerokosc_canvas*skala_obrazka, wysokosc_canvas*2 + wysokosc_canvas*skala_obrazka)
         ctx.translate(szerokosc_canvas / 2, wysokosc_canvas / 2)
         //
@@ -49,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
         //
         ctx.rotate(-angle * Math.PI / 180)
         ctx.translate(-szerokosc_canvas / 2, -wysokosc_canvas / 2)
-        //
     }
     //
     function drawImages() {
@@ -81,5 +78,4 @@ document.addEventListener('DOMContentLoaded', function() {
             //
         }, 2)
     }
-    //
 })

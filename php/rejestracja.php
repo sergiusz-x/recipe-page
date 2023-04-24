@@ -57,6 +57,7 @@
     $query_szukaj = "SELECT * FROM users WHERE email = '$email' OR pseudonim = '$pseudonim'";
     $query_wstaw = "INSERT INTO users (pseudonim, email, haslo) VALUES ('$pseudonim', '$email', '$hashed_password')";
     //
+    //
     $keywordsqlinjection = array('update', 'truncate', 'delete', 'drop', 'create', ';', '--');
     $lowercase_query_szukaj = strtolower($query_szukaj);
     $lowercase_query_wstaw = strtolower($query_wstaw);

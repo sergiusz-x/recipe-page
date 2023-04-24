@@ -13,13 +13,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nowy przepis</title>
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono">
     <link rel="stylesheet" href="../css/nowyprzepis.css">
     <link rel="stylesheet" href="../css/main.css">
     <script src="../js/canvas_logo.js"></script>
     <script src="../js/nowyprzepis.js"></script>
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono">
 </head>
 <body>
     <nav>
@@ -138,11 +136,7 @@
                 <button class="button-dodaj-zdjecie" onclick="zmienKolejnoscZdjec()"><img src="../images/refresh_ikonka.svg" alt="Ikona refresh"></button>
             </div>
 
-            <div class="podglad-zdjecia">
-                <!-- <img src="../images/dummy.png" alt="Podgląd dodanego zdjęcia" class="src-dodane-zdjecie">
-                <img src="../images/logo.png" alt="Podgląd dodanego zdjęcia" class="src-dodane-zdjecie">
-                <img src="../images/dummy_no_background.png" alt="Podgląd dodanego zdjęcia" class="src-dodane-zdjecie"> -->
-            </div>
+            <div class="podglad-zdjecia"></div>
         </div>
     </main>
 </body>

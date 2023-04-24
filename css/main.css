@@ -5,13 +5,10 @@ body {
 	padding: 0;
     background-color: #F8EDE3;
 }
-
 a {
     text-decoration: none;
     color: inherit;
 }
-
-
 /* NAVBAR*/
 nav {
     display: flex;
@@ -23,11 +20,9 @@ nav {
     border-bottom: 5px solid #353D34;
     padding: 0 20px;
 }
-
 .navbar-center {
     justify-content: center;
 }
-
 .navbar-logo {
     background-color: #A2B29F;
     display: flex;
@@ -54,8 +49,6 @@ nav {
         font-size: 20px;
     }
 }
-
-
 .navbar-middle-button {
     font-family: "Roboto Mono", serif;
     width: 250px;
@@ -87,8 +80,6 @@ nav {
     color: #F8EDE3;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
 }
-
-
 .navbar-search {
     display: flex;
     align-items: center;
@@ -148,10 +139,6 @@ nav {
 .navbar-search-middle input[type="text"] {
     width: 400px;
 }
-
-
-
-
 .navbar-user {
     background-color: #A2B29F;
     border: 5px solid #353D34;

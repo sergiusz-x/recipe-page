@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Przepisy kulinarne</title>
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono">
     <link rel="stylesheet" href="../css/przepis.css">
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono">
     <script src="../js/navbar.js"></script>
     <script src="../js/przepis.js"></script>
     <script src="../js/canvas_logo.js"></script>

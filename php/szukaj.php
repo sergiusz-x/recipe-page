@@ -29,6 +29,7 @@
     $query = strtolower(str_replace(' ', '', $query));
     $query = mysqli_real_escape_string($conn, $query);
     $zapytanie_sql_tresc = "SELECT * FROM `przepisy` WHERE LOWER(REPLACE(nazwa, ' ', '')) LIKE '%$query%'";
+    $zapytanie_sql_tresc = mysqli_real_escape_string($conn, $zapytanie_sql_tresc);
     //
     $keywordsqlinjection = array('insert', 'truncate', 'update', 'delete', 'drop', 'create', ';', '--');
     $lowercase_query = strtolower($zapytanie_sql_tresc);

@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Usuwanie search baru jeśli się już nie mieści
     const navbarSearch = document.querySelector('.navbar-search')
     //
     function toogle_class(element, state, class_name) {
@@ -21,5 +20,4 @@ document.addEventListener('DOMContentLoaded', function() {
             toogle_class(navbarSearch, true, "navbar-search-closed")
         }
     })
-    //
 })

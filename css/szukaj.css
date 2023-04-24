@@ -29,7 +29,6 @@
     object-fit: cover;
     border-radius: 10px;
 }
-
 .znalezione-przepisy-box {
     display: flex;
     justify-content: space-around;
@@ -40,11 +39,3 @@
     margin-bottom: 100px;
     margin-top: 50px;
 }
-
-/*
-KOLOR 1: #F8EDE3
-KOLOR 2: #BDD2B6
-KOLOR 3: #A2B29F
-KOLOR 4: #798777
-KOLOR 5: #353D34
-*/

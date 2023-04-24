@@ -7,14 +7,12 @@ h3 {
     text-align: center;
     font-size: 30px;
 }
-
 .buttons-zarzadzanie {
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 .buttons-zarzadzanie .button {
     font-family: "Roboto Mono", serif;
     width: 190px;
@@ -40,7 +38,6 @@ h3 {
     color: #F8EDE3;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
 }
-
 .przepis-box {
     width: 65%;
     margin: auto;
@@ -53,7 +50,6 @@ h3 {
     margin-bottom: 40px;
     overflow: hidden;
 }
-
 .przepis-box img {
     width: 125px;
     height: 125px;
@@ -61,13 +57,11 @@ h3 {
     border-radius: 25px;
     cursor: pointer;
 }
-
 .przepis-box p {
     font-size: 35px;
     font-weight: bold;
     margin-right: auto;
 }
-
 .przepis-box button {
     font-family: "Roboto Mono", serif;
     width: 140px;
@@ -94,24 +88,14 @@ h3 {
     color: #F8EDE3;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
 }
-
 .przepis-box button img {
     width: 20px;
     height: 20px;
     margin-right: 5px;
 }
-
 .searched-przepisy-box {
     display: flex;
     justify-content: center;
     flex-direction: column;
     margin-top: 20px;
 }
-
-/*
-KOLOR 1: #F8EDE3
-KOLOR 2: #BDD2B6
-KOLOR 3: #A2B29F
-KOLOR 4: #798777
-KOLOR 5: #353D34
-*/

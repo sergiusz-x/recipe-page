@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //
     const canvas = document.getElementById("canvas-logo")
     const ctx = canvas.getContext("2d")
+    const logo_strony = document.getElementById("logo-strony-png")
     //
     let czy_hover = false
     canvas.addEventListener('mouseenter', () => { czy_hover = true })
@@ -71,6 +72,11 @@ document.addEventListener('DOMContentLoaded', function() {
     function start() {
         if(animation_started || !images_loaded) return
         animation_started = true
+        //
+        if(logo_strony) {
+            logo_strony.remove()
+        }
+        canvas.style = "display: block;"
         //
         ctx.translate((szerokosc_canvas - szerokosc_canvas*skala_obrazka) / 2, (wysokosc_canvas - wysokosc_canvas*skala_obrazka) / 2)
         ctx.scale(skala_obrazka, skala_obrazka)

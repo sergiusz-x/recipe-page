@@ -16,8 +16,8 @@
     <nav>
         <a href="index.php">
             <div class="navbar-logo">
-                <noscript><img src="../images/logo.png" alt="Logo strony"></noscript>
-                <canvas id="canvas-logo" width="110" height="110"></canvas>
+                <img src="../images/logo.png" alt="Logo strony" id="logo-strony-png" style="width:94px;height:94px;">
+                <canvas id="canvas-logo" width="110" height="110" style="display: none;"></canvas>
                 <p>PRZEPISY KULINARNE</p>
             </div>
         </a>

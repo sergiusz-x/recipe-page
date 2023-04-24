@@ -143,6 +143,7 @@
                 <h2>Przygotowanie krok po kroku:</h2>
                 '.$kroki.'
             </div>
+            <br><br>
         </div>
     </div>
 </main>
@@ -151,6 +152,8 @@
     let images = '.$zdjecia_list_txt.'
     document.title = "'.$row['nazwa'].'"
 </script>
+
+
 
 <footer>
     <p>Odwiedziny przepisu: '. $odwiedziny .'</p>

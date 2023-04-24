@@ -58,6 +58,8 @@
         // Walidacja składników
         if (!is_array($skladniki)) {
             return false;
+        } else if(count($skladniki) > 25) {
+            return false;
         }
         foreach ($skladniki as $skladnik) {
             if (!is_array($skladnik) || !array_key_exists('nazwa', $skladnik) || !array_key_exists('wielkosc', $skladnik) || !array_key_exists('typ_wielkosci', $skladnik)) {
@@ -76,6 +78,8 @@
         }
         // Walidacja przygotowania
         if (!is_array($przygotowanie)) {
+            return false;
+        } else if(count($przygotowanie) > 25) {
             return false;
         }
         foreach ($przygotowanie as $krok) {

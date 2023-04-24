@@ -10,17 +10,28 @@ document.addEventListener('DOMContentLoaded', function() {
     canvas.addEventListener('mouseenter', () => { czy_hover = true })
     canvas.addEventListener('mouseleave', () => { czy_hover = false })
     //
+    let animation_started = false
+    let interval = setInterval(() => {
+        if(!animation_started) {
+            start()
+        } else {
+            clearInterval(interval)
+        }
+    }, 10);
+    //
     let _image_trzepaczka = new Image()
     let _image_walek = new Image()
     let image_trzepaczka, image_walek
     _image_trzepaczka.src = "../images/logo_trzepaczka.svg"
     _image_walek.src = "../images/logo_walek.svg"
+    let images_loaded = false
     //
     _image_trzepaczka.onload = function(){
         image_trzepaczka = this
         //
         _image_walek.onload = function(){
             image_walek = this
+            images_loaded = true
             start()
         }
     }
@@ -58,6 +69,9 @@ document.addEventListener('DOMContentLoaded', function() {
     //
     let angle = 0
     function start() {
+        if(animation_started || !images_loaded) return
+        animation_started = true
+        //
         ctx.translate((szerokosc_canvas - szerokosc_canvas*skala_obrazka) / 2, (wysokosc_canvas - wysokosc_canvas*skala_obrazka) / 2)
         ctx.scale(skala_obrazka, skala_obrazka)
         //

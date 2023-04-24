@@ -172,7 +172,7 @@ function dodaj_usun_skladniki(dodaj) {
         klon_div.querySelector(".skladnik-nazwa-input").value = ""
         klon_div.querySelector(".skladnik-wielkosc-input").value = ""
         //
-        skladniki_box_div.appendChild(klon_div)
+        if(skladniki_box_div.children.length < 25) skladniki_box_div.appendChild(klon_div)
         //
         if(skladniki_box_div.children.length > 1) {
             skladniki_przycisk_usun.disabled = false
@@ -195,7 +195,7 @@ function dodaj_usun_przygotowanie(dodaj) {
         const klon_div = przygotowanie_box_oryginal.cloneNode(true)
         klon_div.querySelector(".textarea-krok-przygotowania").value = ""
         //
-        przygotowanie_box_div.appendChild(klon_div)
+        if(przygotowanie_box_div.children.length < 25) przygotowanie_box_div.appendChild(klon_div)
         //
         if(przygotowanie_box_div.children.length > 1) {
             przygotowanie_przycisk_usun.disabled = false

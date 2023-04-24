@@ -57,10 +57,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }).then(text => {
                 if(text.startsWith("Success")) {
                     alert("Pomyślnie stworzono konto. Prosimy o zalogowanie!")
+                    return location.reload()
                 } else {
                     alert(text)
                 }
-                return location.reload()
             }).catch(error => {
                 console.error(error)
             })
@@ -91,10 +91,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }).then(text => {
                 if(text.startsWith("Success")) {
                     alert("Pomyślnie zalogowano!")
+                    window.location.href = `${window.location.pathname}/../konto.php`
                 } else {
                     alert(text)
                 }
-                window.location.href = `${window.location.pathname}/../konto.php`
             }).catch(error => {
                 console.error(error)
             })

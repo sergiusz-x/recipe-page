@@ -161,7 +161,7 @@ input.skladnik-wielkosc-input {
     line-height: 1.2;
     min-height: 150px;
 }
-.skladnik textarea:focus {
+.krok-przygotowania textarea:focus {
     background-color: #798777;
     border: 4px solid #353D34;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);

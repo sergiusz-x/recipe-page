@@ -58,13 +58,15 @@ li input[type="checkbox"] {
     height: 20px;
 }
 .zdjecie-przepisu {
-    width: 45vw;
-    height: 33.75vw;
+    width: 90%;
+    height: 35vw;
     border-radius: 60px;
     margin: 0 auto 20px;
     margin-top: 50px;
+    margin-left: 10px;
     overflow: hidden;
     position: relative;
+    
 }
 .zdjecie-przepisu img {
     width: 100%;
@@ -96,8 +98,8 @@ li input[type="checkbox"] {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin-bottom: 100px;
     margin-left: 10px;
+    margin-bottom: 100px;
 }
 .przygotowanie-box div {
     width: 90%;

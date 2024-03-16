@@ -18,12 +18,12 @@ This project is a website created as part of a university course assignment. The
 
 ## 💻 Preview
 
-![Main Page](https://cdn.discordapp.com/attachments/1133735893715386438/1157380488537841745/image.png)
+![Main Page](https://github.com/sergiusz-x/recipe-page/blob/main/images/readme/main_page.png)
 
-![Recipe Page](https://cdn.discordapp.com/attachments/1133735893715386438/1157380567856324658/image.png)
+![Recipe Page](https://github.com/sergiusz-x/recipe-page/blob/main/images/readme/recipe_page.png)
 
-![Login Page](https://cdn.discordapp.com/attachments/1133735893715386438/1157380693039526009/image.png)
+![Login Page](https://github.com/sergiusz-x/recipe-page/blob/main/images/readme/login_page.png)
 
-![User Panel](https://cdn.discordapp.com/attachments/1133735893715386438/1157380769690427432/image.png)
+![User Panel](https://github.com/sergiusz-x/recipe-page/blob/main/images/readme/user_panel.png)
 
-![Adding a recipe](https://cdn.discordapp.com/attachments/1133735893715386438/1157381207428964413/image.png)
+![Adding a recipe](https://github.com/sergiusz-x/recipe-page/blob/main/images/readme/adding_a_recipe.png)
